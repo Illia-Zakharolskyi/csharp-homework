@@ -21,6 +21,8 @@ A collection of C# console applications and exercises focused on learning C# fun
 
 2. Open the desired project folder (for example, csharp-homeworks/Homework/2025/xx_07_2025/Homework_30_07_2025).
 
-3. Open the .csproj file or open the project folder in your IDE (Visual Studio / VS Code).
-
-4. Run the project using your IDE (e.g., press F5 or use the Integrated Terminal).
+3. To run the code:
+   If a .csproj file is present: Open the .csproj file in Visual Studio / VS Code and press F5 (or click Run)
+   If only .cs files are present: Open the folder in VS Code, open the Integrated Terminal, and run:
+   ```bash
+   dotnet run
