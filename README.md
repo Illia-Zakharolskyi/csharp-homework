@@ -23,6 +23,6 @@
 
 3. To run the code:
    If a .csproj file is present: Open the .csproj file in Visual Studio / VS Code and press F5 (or click Run)
-   If only .cs files are present: Open the folder in VS Code, open the Integrated Terminal, and run:
+   If only .cs files are present: Open the folder in terminal, and run:
    ```bash
-   dotnet run
+   dotnet run [file name](e.g. Program.cs)
