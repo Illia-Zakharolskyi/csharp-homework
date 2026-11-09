@@ -1,6 +1,7 @@
 # csharp-homeworks
 
 ![Language](https://img.shields.io/badge/C%23-10.0-green)
+![Language](https://img.shields.io/badge/C%23-9.0-green)
 
 # A collection of C# console applications and exercises focused on learning C# fundamentals and Object-Oriented Programming (OOP).
 ### (The owner of the repository is currently working on translating various parts of of the project from Ukrainian into English)
