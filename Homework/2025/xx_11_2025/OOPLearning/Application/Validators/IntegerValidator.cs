@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SimpleAssistant.ProgramHeart.Utilities.Helpers.DataHelpers;
+﻿namespace SimpleAssistant.ProgramHeart.Utilities.Helpers.DataHelpers;
 
 internal static class IntegerValidator
 {
@@ -19,7 +17,7 @@ internal static class IntegerValidator
 
             if (allowedAnswers != null && !allowedAnswers.Contains(userInteger))
             {
-                Console.WriteLine(invalidChoiceMessage ?? "Такої віповіді нема");
+                Console.WriteLine(invalidChoiceMessage ?? "Invalid choice.");
                 continue;
             }
 

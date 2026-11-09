@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StrangeTasks_15_10_2025.ProgramHeart.Utilities.Helpers.DataHelpers;
+﻿namespace StrangeTasks_15_10_2025.ProgramHeart.Utilities.Helpers.DataHelpers;
 
 internal static class StringHelper
 {
@@ -25,7 +23,7 @@ internal static class StringHelper
 
                 if (!isFound)
                 {
-                    Console.WriteLine(invalidChoiceMessage ?? "Не коректний вибір, спробуй ще");
+                    Console.WriteLine(invalidChoiceMessage ?? "Invalid choice");
                     continue;
                 }
             }

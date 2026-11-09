@@ -8,23 +8,23 @@ internal class Trap
     {
         if (isTriggered)
         {
-            Console.WriteLine("Пастка вже була активована раніше!");
+            Console.WriteLine("trap has already been triggered!");
             return;
         }
 
         isTriggered = true;
-        Console.WriteLine("Пастку було активовано!");
+        Console.WriteLine("trap has been triggered!");
     }
 
     internal void ResetTrap()
     {
         if (!isTriggered)
         {
-            Console.WriteLine("Пастка вже скинута і готова до активації!");
+            Console.WriteLine("trap has already been reset and is ready for activation!");
             return;
         }
 
         isTriggered = false;
-        Console.WriteLine("Пастку було скинуто");
+        Console.WriteLine("trap has been reset");
     }
 }

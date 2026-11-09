@@ -1,11 +1,6 @@
 ﻿using MagicCrystal.CrystalHeart.Core;
 using MagicCrystal.CrytsalInfo.Commands;
 using MagicCrystal.UserProfile;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MagicCrystal.CrystalHeart.Helpers.Factories;
 
@@ -15,8 +10,8 @@ internal static class CommandFactory
     {
         return new Dictionary<string, ICommand>()
         {
-            { "вихід", new ExitCommand() },
-            { "змінити стиль", new ChangeCrystalModCommand { user = user } },
+            { "exit", new ExitCommand() },
+            { "change style", new ChangeCrystalModCommand { user = user } },
         };
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using OOPLearning.Application.Formatters;
+﻿using OOPLearning.Application.Formatters;
 using OOPLearning.Classes;
 
 namespace OOPLearning.Application.Runners;
@@ -20,16 +19,16 @@ internal static class DemoRunner
             RunKnightSwordDemo,
             RunRecipeDemo,
         };
-        
-        Console.WriteLine(new string('~', 15) + " Початок усіх демонстрацій " + new string('~', 15));
+
+        Console.WriteLine(new string('~', 15) + " Start of all demonstrations " + new string('~', 15));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(allDemos, "Демонстрація", '*', 70);
+        RunDemoClassesFormatter.RunActions(allDemos, "Demonstration", '*', 70);
         Console.WriteLine();
-        Console.WriteLine(new string('~', 15) + " Кінець усіх демонстрацій " + new string('~', 15));
+        Console.WriteLine(new string('~', 15) + " End of all demonstrations " + new string('~', 15));
     }
     internal static void RunBankAccountDemo()
     {
-        BankAccount account = new BankAccount()
+        BankAccount account = new()
         {
             OwnerName = "Іван Петренко"
         };
@@ -45,23 +44,23 @@ internal static class DemoRunner
             () => account.ShowAccountInfo()
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з банківським рахунком " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of bank account actions presentation " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія з банківським рахунком", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Bank account action", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з банківським рахунком " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of bank account actions presentation " + new string('=', 10));
     }
-    internal static void RunEnemyDemo() 
+    internal static void RunEnemyDemo()
     {
-        Enemy goblin = new Enemy()
+        Enemy goblin = new()
         {
-            Name = "Гоблін",
+            Name = "Goblin",
             MaxHealth = 30f,
             BaseAttackPower = 6f
         };
-        Enemy skeleton = new Enemy()
+        Enemy skeleton = new()
         {
-            Name = "Скелет",
+            Name = "Skeleton",
             MaxHealth = 25f,
             BaseAttackPower = 8f
         };
@@ -71,51 +70,51 @@ internal static class DemoRunner
             () => goblin.AttackTarget(skeleton),
             () => skeleton.AttackTarget(goblin),
             () => goblin.AttackTarget(skeleton),
-            () => goblin.LevelUp(), 
+            () => goblin.LevelUp(),
             () => skeleton.Heal(10),
-            () => skeleton.AttackTarget(goblin), 
-            () => goblin.AttackTarget(skeleton), 
-            () => skeleton.AttackTarget(goblin), 
-            () => skeleton.LevelUp(), 
-            () => goblin.AttackTarget(skeleton), 
-            () => skeleton.AttackTarget(goblin), 
-            () => goblin.Heal(2), 
-            () => skeleton.AttackTarget(goblin), 
-            () => goblin.AttackTarget(skeleton), 
+            () => skeleton.AttackTarget(goblin),
+            () => goblin.AttackTarget(skeleton),
+            () => skeleton.AttackTarget(goblin),
+            () => skeleton.LevelUp(),
+            () => goblin.AttackTarget(skeleton),
+            () => skeleton.AttackTarget(goblin),
+            () => goblin.Heal(2),
+            () => skeleton.AttackTarget(goblin),
+            () => goblin.AttackTarget(skeleton),
             () => skeleton.AttackTarget(goblin)
         };
 
         goblin.ShowInfoByCreation();
         skeleton.ShowInfoByCreation();
 
-        Console.WriteLine(new string('=', 5) + " Початок битви! " + new string('=', 5));
+        Console.WriteLine(new string('=', 5) + " Start of battle! " + new string('=', 5));
         Console.WriteLine();
 
-        RunDemoClassesFormatter.RunActions(actions, "Хід", '-', 90);
+        RunDemoClassesFormatter.RunActions(actions, "Turn", '-', 90);
 
         Console.WriteLine();
-        Console.WriteLine(new string('=', 5) + " Кінець битви! " + new string('=', 5));
+        Console.WriteLine(new string('=', 5) + " End of battle! " + new string('=', 5));
 
-        Console.WriteLine($"Переможець: {(goblin.IsAlive ? goblin.Name : skeleton.Name)}");
+        Console.WriteLine($"Winner: {(goblin.IsAlive ? goblin.Name : skeleton.Name)}");
     }
     internal static void RunMagicDemo()
     {
-        Magic magic = new Magic();
-        magic.CastSpell("Вогняна куля");
-        magic.UsePotion("Зілля здоров'я");
+        Magic magic = new();
+        magic.CastSpell("fire bullet");
+        magic.UsePotion("health potion");
     }
     internal static void RunTreausreChestDemo()
     {
-        TreasureChest chest = new TreasureChest();
+        TreasureChest chest = new();
 
         var actions = new List<Action>
         {
             () => chest.OpenChest(),
             () => chest.CloseChest(),
-            () => chest.AddTreasure("Золото", 6),
-            () => chest.AddTreasure("Діаманти", 3),
+            () => chest.AddTreasure("Gold", 6),
+            () => chest.AddTreasure("Diamonds", 3),
             () => chest.OpenChest(),
-            () => chest.AddTreasure("Золото", 4),
+            () => chest.AddTreasure("Gold", 4),
             () => chest.OpenChest(),
             () => chest.CloseChest(),
             () => chest.OpenChest(),
@@ -123,64 +122,64 @@ internal static class DemoRunner
             () => chest.CloseChest(),
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій зі скринею " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with the treasure chest " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія зі скринею", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Action with the treasure chest", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій зі скринею " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with the treasure chest " + new string('=', 10));
     }
     internal static void RunInventoryDemo()
     {
-        Inventory inventory = new Inventory();
+        Inventory inventory = new();
 
         List<Action> actions = new()
         {
             () => inventory.ShowInventory(),
-            () => inventory.AddItem("Меч"),
-            () => inventory.AddItem("Щит", 2),
+            () => inventory.AddItem("Sword"),
+            () => inventory.AddItem("Shield", 2),
             () => inventory.ShowInventory(),
-            () => inventory.AddItem("Меч", 3),
+            () => inventory.AddItem("Sword", 3),
             () => inventory.ShowInventory(),
-            () => inventory.RemoveItem("Лук"),
-            () => inventory.RemoveItem("Щит"),
+            () => inventory.RemoveItem("Bow"),
+            () => inventory.RemoveItem("Shield"),
             () => inventory.ShowInventory(),
             () => inventory.ClearInvenory(),
             () => inventory.ShowInventory()
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з Інвентаром " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with the inventory " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія з Інвентарем", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Action with the inventory", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з Інвентарем " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with the inventory " + new string('=', 10));
     }
     internal static void RunMedicinalPlantDemo()
     {
-        MedicinalPlant plantCollector = new MedicinalPlant();
+        MedicinalPlant plantCollector = new();
 
         List<Action> actions = new()
         {
             () => plantCollector.ShowCollectedPlants(),
-            () => plantCollector.CollectPlant("Ромашка", 3),
-            () => plantCollector.CollectPlant("М'ята", 5),
+            () => plantCollector.CollectPlant("Romashka", 3),
+            () => plantCollector.CollectPlant("M'ята", 5),
             () => plantCollector.ShowCollectedPlants(),
-            () => plantCollector.CollectPlant("Алоє", 4),
+            () => plantCollector.CollectPlant("Aloe", 4),
             () => plantCollector.ShowCollectedPlants(),
-            () => plantCollector.CreateMedicine("зілля відновлення мани"),
-            () => plantCollector.CreateMedicine("зілля лікування"),
-            () => plantCollector.CreateMedicine("зілля сили"),
-            () => plantCollector.CreateMedicine("зілля невідоме")
+            () => plantCollector.CreateMedicine("potion of mana restoration"),
+            () => plantCollector.CreateMedicine("potion of healing"),
+            () => plantCollector.CreateMedicine("potion of strength"),
+            () => plantCollector.CreateMedicine("potion of the unknown")
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій зі збором лікарських рослин " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with the medicinal plant collection " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія зі збором лікарських рослин", '-', 70);
+        RunDemoClassesFormatter.RunActions(actions, "Action with the medicinal plant collection", '-', 70);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій зі збором лікарських рослин " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with the medicinal plant collection " + new string('=', 10));
     }
     internal static void RunTrapDemo()
     {
-        Trap trap = new Trap();
+        Trap trap = new();
         var actions = new List<Action>
         {
             () => trap.TriggerTrap(),
@@ -191,29 +190,29 @@ internal static class DemoRunner
             () => trap.ResetTrap()
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з пасткою " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with the trap " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія з пасткою", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Action with the trap", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з пасткою " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with the trap " + new string('=', 10));
     }
     internal static void RunKnightSwordDemo()
     {
-        KnightSword knightSword = new KnightSword()
+        KnightSword knightSword = new()
         {
-            SwordOwner = "Герой",
+            SwordOwner = "hero",
             BaseAttackPower = 35,
             BaseDurability = 50
         };
-        Enemy enemy1 = new Enemy()
+        Enemy enemy1 = new()
         {
-            Name = "Огр",
+            Name = "ogr",
             MaxHealth = 50f,
             BaseAttackPower = 10f
         };
-        Enemy enemy2 = new Enemy()
+        Enemy enemy2 = new()
         {
-            Name = "Троль",
+            Name = " troll ",
             MaxHealth = 60f,
             BaseAttackPower = 12f
         };
@@ -236,42 +235,42 @@ internal static class DemoRunner
 
         knightSword.ShowSwordInfo();
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з мечем лицаря " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with the knight's sword " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія з мечем лицаря", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Action with the knight's sword", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з мечем лицаря " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with the knight's sword " + new string('=', 10));
     }
     internal static void RunRecipeDemo()
     {
-        Recipe recipe = new Recipe()
+        Recipe recipe = new()
         {
-            Name = "Оладки на кефірі"
+            Name = "Pancakes on kefir"
         };
 
         var actions = new List<Action>
         {
             () => recipe.ShowRecipeIngredients(),
-            () => recipe.AddIngredient("Кефір", "251 мл."),
-            () => recipe.ChangeIngredientQuantity("Кафір", "250 мл."),
-            () => recipe.ChangeIngredientQuantity("Кефір", "250 мл."),
+            () => recipe.AddIngredient("Kefir", "251 ml."),
+            () => recipe.ChangeIngredientQuantity("Kefir", "250 ml."),
+            () => recipe.ChangeIngredientQuantity("Kefir", "250 ml."),
             () => recipe.ShowRecipeIngredients(),
-            () => recipe.AddIngredient("Борошно", "350 г."),
-            () => recipe.AddIngredient("Яйця"),
-            () => recipe.AddIngredient("Цукор", "1.5 ст.л"),
-            () => recipe.AddIngredient("Сіль", "1/3 ст.л"),
-            () => recipe.AddIngredient("Сода", "1/2 ст.л"),
+            () => recipe.AddIngredient("Flour", "350 g."),
+            () => recipe.AddIngredient("Eggs", "2 pcs."),
+            () => recipe.AddIngredient("Sugar", "1.5 tbsp"),
+            () => recipe.AddIngredient("Salt", "1/3 tbsp"),
+            () => recipe.AddIngredient("Baking Soda", "1/2 tbsp"),
             () => recipe.ShowRecipeIngredients(),
-            () => recipe.RemoveIngredient("Кеффр"),
-            () => recipe.RemoveIngredient("Кефір"),
+            () => recipe.RemoveIngredient("Kefir"),
+            () => recipe.RemoveIngredient("Kefir"),
             () => recipe.ShowRecipeIngredients()
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з рецептом " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with the recipe " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія з рецептом", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Action with the recipe", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з рецептом " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with the recipe " + new string('=', 10));
     }
     internal static void RunExitDemo()
     {

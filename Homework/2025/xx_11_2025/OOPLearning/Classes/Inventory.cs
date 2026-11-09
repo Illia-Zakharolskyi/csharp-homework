@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class Inventory
 {
@@ -14,19 +8,19 @@ internal class Inventory
     {
         if (amount <= 0)
         {
-            Console.WriteLine("Кількість повинна бути більше ніж 0");
+            Console.WriteLine("The amount must be greater than 0");
             return;
         }
 
         if (items.ContainsKey(item))
         {
             items[item] += amount;
-            Console.WriteLine($"Додано ще {amount} шт. предмету: '{item}'");
+            Console.WriteLine($"The amount of '{item}' has been increased by {amount}");
         }
         else
         {
             items[item] = amount;
-            Console.WriteLine($"Додано новий предмет: '{item}', кількість {amount} шт.");
+            Console.WriteLine($"Added new item: '{item}', quantity {amount}.");
         }
     }
 
@@ -34,32 +28,32 @@ internal class Inventory
     {
         if (!items.ContainsKey(item))
         {
-            Console.WriteLine($"Предмет '{item}' не знайдено в інвентарі для видалення.");
+            Console.WriteLine($"Item '{item}' not found in inventory for removal.");
             return;
         }
 
-        items.Remove(item);
-        Console.WriteLine($"Предмет '{item}' видалено з інвентарю.");
+        _ = items.Remove(item);
+        Console.WriteLine($"Item '{item}' removed from inventory.");
     }
 
     internal void ShowInventory()
     {
         if (items.Count == 0)
         {
-            Console.WriteLine("Інвентар порожній, нічого показати");
+            Console.WriteLine("Inventory is empty, nothing to show");
             return;
         }
 
-        Console.WriteLine("Інвентар містить:");
+        Console.WriteLine("Inventory contains:");
         foreach (var item in items)
         {
-            Console.WriteLine($"- {item.Value} шт. Предмету {item.Key}");
+            Console.WriteLine($"- {item.Value} units of item {item.Key}");
         }
     }
 
     internal void ClearInvenory()
     {
         items.Clear();
-        Console.WriteLine("Інвентар очищено");
+        Console.WriteLine("Inventory cleared");
     }
 }

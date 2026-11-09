@@ -1,1 +1,1 @@
-щоб тримати папку в гітхабі
+text file to keep a folder on GitHub

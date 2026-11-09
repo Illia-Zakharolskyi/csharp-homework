@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class KnightSword
 {
@@ -32,9 +25,9 @@ internal class KnightSword
         get => currentAttackPower;
         init
         {
-            if (value < 1 || value > 150)
+            if (value is < 1 or > 150)
             {
-                Console.WriteLine("Значення не входить у дозволенний базовий збиток меча лицаря, базовий збиток поставленно за замовченням");
+                Console.WriteLine("The value is not within the allowed range for the knight's sword base attack power, default value set");
                 baseAttackPower = 35;
             }
             else
@@ -53,9 +46,9 @@ internal class KnightSword
         get => currentDurability;
         init
         {
-            if (value < 50 || value > 200)
+            if (value is < 50 or > 200)
             {
-                Console.WriteLine("Значення не входить у дозволенний базовий рівень міцності меча лицаря, базова міцність поставленно за замовченням");
+                Console.WriteLine("The value is not within the allowed range for the knight's sword base durability, default value set");
                 baseDurability = 110;
             }
             else
@@ -70,18 +63,18 @@ internal class KnightSword
     // методи класу
     internal void ShowSwordInfo()
     {
-        Console.WriteLine($"Власник нового меча: {SwordOwner}, пошкодження: {baseAttackPower:F2}, міцність: {baseDurability}");
+        Console.WriteLine($"Sword owner: {SwordOwner}, damage: {baseAttackPower:F2}, durability: {baseDurability}");
     }
 
     internal void ShowSwordDurability()
     {
         var durabilityLevels = new Dictionary<float, string>
         {
-            { baseDurability * 0.70f, "Міцність меча висока" }, // 70% від базової міцності
-            { baseDurability * 0.50f, "Міцність меча середня" }, // 50% від базової міцності
-            { baseDurability * 0.30f, "Міцність меча низька" }, // 30% від базової міцності
-            { baseDurability * 0.01f,  "Міцність меча дуже низька" }, // 1% від базової міцності
-            { 0.00f,  "Меч зламаний" } // 0.00 міцності
+            { baseDurability * 0.70f, "Sword durability is high" }, // 70% of base durability
+            { baseDurability * 0.50f, "Sword durability is medium" }, // 50% of base durability
+            { baseDurability * 0.30f, "Sword durability is low" }, // 30% of base durability
+            { baseDurability * 0.01f,  "Sword durability is very low" }, // 1% of base durability
+            { 0.00f,  "Sword is broken" } // 0.00 durability
         };
 
         foreach (var level in durabilityLevels)
@@ -98,22 +91,25 @@ internal class KnightSword
     {
         if (IsBroken)
         {
-            Console.WriteLine("Меч зламаний та не може атакувати");
+            Console.WriteLine("Sword is broken and cannot attack");
             return;
         }
 
         target.ReceiveDamage(currentAttackPower, SwordOwner);
         currentDurability -= 3;
-        if (currentDurability < 0) currentDurability = 0;
+        if (currentDurability < 0)
+        {
+            currentDurability = 0;
+        }
 
-        Console.WriteLine($"{SwordOwner} наніс {currentAttackPower:F2} одиниць збитку {target.Name}y маючи тепер {currentDurability} одиниць міцності меча");
+        Console.WriteLine($"{SwordOwner} deals {currentAttackPower:F2} damage to {target.Name}, now having {currentDurability} durability left");
     }
 
     internal void UpgradeSword()
     {
         if (IsBroken)
         {
-            Console.WriteLine("Меч зламаний та не може бути покращений");
+            Console.WriteLine("Sword is broken and cannot be upgraded");
             return;
         }
 
@@ -127,6 +123,6 @@ internal class KnightSword
         currentAttackPower = baseAttackPower;
         currentDurability = baseDurability;
 
-        Console.WriteLine($"Меч {SwordOwner} покращено до рівня {swordLevel}. Новий збиток: {baseAttackPower:F2} одиниць, нова міцність: {baseDurability:F2} одиниць");
+        Console.WriteLine($"Sword {SwordOwner} upgraded to level {swordLevel}. New damage: {baseAttackPower:F2} units, new durability: {baseDurability:F2} units");
     }
 }

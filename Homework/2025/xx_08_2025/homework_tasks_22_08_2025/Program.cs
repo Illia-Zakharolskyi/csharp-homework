@@ -28,9 +28,9 @@ class StartProgram
     {
         Thread.Sleep(2000);
         Console.Clear();
-        List<string> Menu = new List<string> {  "", "день тижня", "оцінки", "місяця року", "калькулятор операцій", "казкова планета кольорів", "чат бот для транспорту",
-            "тип змінної", "міні гра", "вийти" };
-        Console.WriteLine("операції:");
+        List<string> Menu = new List<string> {  "", "Day of the week", "notes", "months of the year", "Calculator", "A Fairytale Planet of Colors", "chatbot for transport",
+            "variable's type", "mini game", "exit" };
+        Console.WriteLine("operations:");
         for (int i = 1; i < Menu.Count; i++)
         {
             Thread.Sleep(250);
@@ -39,7 +39,7 @@ class StartProgram
     }
     static void UserOperation()
     {
-        Console.Write("твій вибір: ");
+        Console.Write("your choice: ");
         int SelectedTask;
         if (int.TryParse(Console.ReadLine(), out SelectedTask))
         {
@@ -75,52 +75,52 @@ class StartProgram
                     Environment.Exit(0);
                     return;
                 default:
-                    Console.WriteLine("не коректний вибір");
+                    Console.WriteLine("invalid choice");
                     break;
             }
         }
         else
         {
-            Console.WriteLine("ти можеш вибрати тільки чісло");
+            Console.WriteLine("you can only choose a number");
         }
     }
     static void DayWeekLevel1()
     {
-        Console.Write("яка доба неділі(1-7): ");
+        Console.Write("what day of the week (1-7): ");
         int SelectedDay;
         if (int.TryParse(Console.ReadLine(), out SelectedDay))
         {
             switch (SelectedDay)
             {
                 case 1:
-                    Console.WriteLine("понеділок");
+                    Console.WriteLine("Monday");
                     break;
                 case 2:
-                    Console.WriteLine("вівторок");
+                    Console.WriteLine("Tuesday");
                     break;
                 case 3:
-                    Console.WriteLine("середа");
+                    Console.WriteLine("Wednesday");
                     break;
                 case 4:
-                    Console.WriteLine("четверг");
+                    Console.WriteLine("Thursday");
                     break;
                 case 5:
-                    Console.WriteLine("п`ятниця");
+                    Console.WriteLine("Friday");
                     break;
                 case 6:
-                    Console.WriteLine("субота");
+                    Console.WriteLine("Saturday");
                     break;
                 case 7:
-                    Console.WriteLine("неділя");
+                    Console.WriteLine("Sunday");
                     break;
                 default:
-                    Console.WriteLine("не коретний вибір");
+                    Console.WriteLine("invalid choice");
                     break;
             }
         }
         else
         {
-            Console.WriteLine("ти можеш вибрати тільки чісло");
+            Console.WriteLine("you can only choose a number");
         }
     }
     static void NotesLevel1()
@@ -131,191 +131,191 @@ class StartProgram
         const int BadNote = 2;
         const int VeryBadNote = 1;
 
-        Console.Write("твоя оцінка(1-5): ");
+        Console.Write("your grade (1-5): ");
         int SelectedNote;
         if (int.TryParse(Console.ReadLine(), out SelectedNote))
         {
             switch (SelectedNote)
             {
                 case PerfectlyNote:
-                    Console.WriteLine("відмінно!");
+                    Console.WriteLine("perfect!");
                     break;
                 case GoodNote:
-                    Console.WriteLine("добре!");
+                    Console.WriteLine("good!");
                     break;
                 case SatisfactoryNote:
-                    Console.WriteLine("достатьно");
+                    Console.WriteLine("satisfactory");
                     break;
                 case BadNote:
-                    Console.WriteLine("погано");
+                    Console.WriteLine("bad");
                     break;
                 case VeryBadNote:
-                    Console.WriteLine("дуже погано");
+                    Console.WriteLine("very bad");
                     break;
                 default:
-                    Console.WriteLine("це не правдива оцінка");
+                    Console.WriteLine("this is not a valid grade");
                     break;
             }
         }
         else
         {
-            Console.WriteLine("ти можеш вибрати тільки ціле число");
+            Console.WriteLine("you can only choose an integer");
         }
     }
     static void MonthsYearLevel2()
     {
-        Console.Write("введи місяць(1-12): ");
+        Console.Write("enter a month(1-12): ");
         int SelectedMonth;
         if (int.TryParse(Console.ReadLine(), out SelectedMonth))
         {
             switch (SelectedMonth)
             {
                 case 1:
-                    Console.WriteLine("січень, зима");
+                    Console.WriteLine("January, winter");
                     break;
                 case 2:
-                    Console.WriteLine("лютий, зима");
+                    Console.WriteLine("February, winter");
                     break;
                 case 3:
-                    Console.WriteLine("березень, весна");
+                    Console.WriteLine("March, spring");
                     break;
                 case 4:
-                    Console.WriteLine("квітень, весна");
+                    Console.WriteLine("April, spring");
                     break;
                 case 5:
-                    Console.WriteLine("травень, весна");
+                    Console.WriteLine("May, spring");
                     break;
                 case 6:
-                    Console.WriteLine("червень, літо");
+                    Console.WriteLine("June, summer");
                     break;
                 case 7:
-                    Console.WriteLine("липень, літо");
+                    Console.WriteLine("July, summer");
                     break;
                 case 8:
-                    Console.WriteLine("серпень, літо");
+                    Console.WriteLine("August, summer");
                     break;
                 case 9:
-                    Console.WriteLine("вересень, осінь");
+                    Console.WriteLine("September, autumn");
                     break;
                 case 10:
-                    Console.WriteLine("жовтень, осінь");
+                    Console.WriteLine("October, autumn");
                     break;
                 case 11:
-                    Console.WriteLine("листопад, осінь");
+                    Console.WriteLine("November, autumn");
                     break;
                 case 12:
-                    Console.WriteLine("грудень, зима");
+                    Console.WriteLine("December, winter");
                     break;
                 default:
-                    Console.WriteLine("не коректний місяць");
+                    Console.WriteLine("not a valid month");
                     return;
             }
         }
         else
         {
-            Console.WriteLine("ти можеш вибрати тільки ціле число");
+            Console.WriteLine("not a valid month");
         }
     }
     static void CalculatorOperationLevel2()
     {
-        Console.Write("вибери операцію(+,-,*,/): ");
+        Console.Write("choose operation(+,-,*,/): ");
         char SelecredOperation;
         if (Char.TryParse(Console.ReadLine(), out SelecredOperation))
         {
             switch (SelecredOperation)
             {
                 case '+':
-                    Console.WriteLine("це додавання");
+                    Console.WriteLine("this is addition");
                     break;
                 case '-':
-                    Console.WriteLine("це віднімання");
+                    Console.WriteLine("this is subtraction");
                     break;
                 case '*':
-                    Console.WriteLine("це множення");
+                    Console.WriteLine("this is multiplication");
                     break;
                 case '/':
-                    Console.WriteLine("це ділення");
+                    Console.WriteLine("this is division");
                     break;
                 default:
-                    Console.WriteLine("не відома операція");
+                    Console.WriteLine("invalid operation");
                     return;
             }
         }
         else
         {
-            Console.WriteLine("невідома операція");
+            Console.WriteLine("invalid operation");
         }
     }
     static void FairyPlanetOfColoursLevel3()
     {
-        List<string> Menu = new List<string> { "красний", "помаранчевий", "чорний", "синій", "рожевий", "зелений", "жовтий" };
-        Console.WriteLine("кольори для персонажей:");
+        List<string> Menu = new List<string> { "red", "orange", "black", "blue", "pink", "green", "yellow" };
+        Console.WriteLine("colors for characters:");
         foreach (string item in Menu)
         {
-        Console.WriteLine(item);
+            Console.WriteLine(item);
         }
-        Console.Write("твій колір: ");
+        Console.Write("your color: ");
         string SelectedColour = Console.ReadLine();
         switch (SelectedColour)
         {
-            case "красний":
-                Console.WriteLine("дракон");
+            case "red":
+                Console.WriteLine("dragon");
                 break;
-            case "помаранчевий":
-                Console.WriteLine("свінка пепе");
+            case "orange":
+                Console.WriteLine("pig pepe");
                 break;
-            case "чорний":
-                Console.WriteLine("бєтмен");
+            case "black":
+                Console.WriteLine("batman");
                 break;
-            case "синій":
-                Console.WriteLine("смурфік");
+            case "blue":
+                Console.WriteLine("smurfik");
                 break;
-            case "рожевий":
-                Console.WriteLine("фєєчка вінкс");
+            case "pink":
+                Console.WriteLine("fairy vinx");
                 break;
-            case "зелений":
-                Console.WriteLine("лісовик");
+            case "green":
+                Console.WriteLine("forest spirit");
                 break;
-            case "жовтий":
-                Console.WriteLine("сонячний ельф");
+            case "yellow":
+                Console.WriteLine("sunny elf");
                 break;
             default:
-                Console.WriteLine("в списку нема такого коліру");
+                Console.WriteLine("in the list there is no such color");
                 return;
         }
     }
     static void ChatBotLevel3()
     {
-        List<string> Menu = new List<string> { "автобус", "поїзд", "літак", "велисопед" };
-        Console.WriteLine("транспорти для перевірки:");
+        List<string> Menu = new List<string> { "bus", "train", "plane", "bicycle" };
+        Console.WriteLine("transport for checking:");
         foreach (string item in Menu)
         {
             Console.WriteLine(item);
         }
-        Console.Write("твій транспорт: ");
+        Console.Write("your transport: ");
         string SelectedTransport = Console.ReadLine();
         switch (SelectedTransport)
         {
-            case "автобус":
-                Console.WriteLine("+-7 годин");
+            case "bus":
+                Console.WriteLine("+-7 hours");
                 break;
-            case "поїзд":
-                Console.WriteLine("+-4 години");
+            case "train":
+                Console.WriteLine("+-4 hours");
                 break;
-            case "літак":
-                Console.WriteLine("+- пів години");
+            case "plane":
+                Console.WriteLine("+-30 minutes");
                 break;
-            case "велосипед":
-                Console.WriteLine("+-1 доба");
+            case "bicycle":
+                Console.WriteLine("+-1 day");
                 break;
             default:
-                Console.WriteLine("невідомий транспорт");
+                Console.WriteLine("unknown transport");
                 return;
         }
     }
     static void PatternMatching()
     {
-        Console.Write("введи щось: ");
+        Console.Write("enter something: ");
         string UserInput = Console.ReadLine();
         object obj = null;
         if (int.TryParse(UserInput, out int IntValue))
@@ -341,22 +341,22 @@ class StartProgram
         switch (obj)
         {
             case int i:
-                Console.WriteLine("ціле число");
+                Console.WriteLine("integer");
                 break;
             case double d:
-                Console.WriteLine("десяткові дроби");
+                Console.WriteLine("decimal");
                 break;
             case bool b:
-                Console.WriteLine("істина/не істина");
+                Console.WriteLine("boolean");
                 break;
             case string s:
-                Console.WriteLine("рядок");
+                Console.WriteLine("string");
                 break;
             case null:
-                Console.WriteLine("пустота");
+                Console.WriteLine("null");
                 break;
             default:
-                Console.WriteLine("невідомий тип");
+                Console.WriteLine("unknown type");
                 return;
         }
     }
@@ -367,35 +367,35 @@ class StartProgram
         string Ability = "";
         List<string> charakters = new List<string>
         {
-            "1. воїн",
-            "2. маг",
-            "3. лучник"
+            "1. warrior",
+            "2. mage",
+            "3. archer"
         };
 
         void Warrior()
         {
-            className = "воїн";
+            className = "warrior";
             Hp = 100;
-            Ability = "удар кулаком"; 
+            Ability = "punch";
         }
         void Magicain()
         {
-            className = "Маг";
+            className = "mage";
             Hp = 60;
-            Ability = "закляття на смерть";
+            Ability = "death spell";
         }
         void Archer()
         {
-            className = "лучник";
+            className = "archer";
             Hp = 70;
-            Ability = "стріла";
+            Ability = "arrow";
         }
 
         foreach (string item in charakters)
         {
             Console.WriteLine(item);
         }
-        Console.Write("персонаж: ");
+        Console.Write("character: ");
         string selectedCharakter = Console.ReadLine();
         if (int.TryParse(selectedCharakter, out int currentCharakter))
         {
@@ -411,15 +411,15 @@ class StartProgram
                     Archer();
                     break;
                 default:
-                    Console.WriteLine("такого персонажу нема");
+                    Console.WriteLine("character not found");
                     return;
             }
-            Console.WriteLine($"твій класс: {className}, хп: {Hp},  скіл: {Ability}");
+            Console.WriteLine($"your class: {className}, hp: {Hp}, ability: {Ability}");
             Thread.Sleep(1000);
         }
         else
         {
-            Console.WriteLine("не коректний ввод");
+            Console.WriteLine("invalid input");
         }
     }
 }

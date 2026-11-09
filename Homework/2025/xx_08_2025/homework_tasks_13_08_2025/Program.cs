@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.Eventing.Reader;
 using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Runtime.Remoting.Lifetime;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -35,8 +29,8 @@ namespace homework_tasks_13_08_2025
             Thread.Sleep(3000);
             Console.Clear();
             string[] Menu = { "exit", "homework", "this is positive number?", "this number is even or odd?", "are these numbers equal?", "How old are you?",
-                "is your number in range?", "what`s your note?", "Greetings by time of day", "Calculator", "what`s season is it?", "password validator", 
-                "your year is Leap?", "will you have action in cinema by your ticket?", "Mini-Quiz", "Mini-Bank", "will you have action in shop?", 
+                "is your number in range?", "what`s your note?", "Greetings by time of day", "Calculator", "what`s season is it?", "password validator",
+                "your year is Leap?", "will you have action in cinema by your ticket?", "Mini-Quiz", "Mini-Bank", "will you have action in shop?",
                 "enter correct login and password!", "Quess the number!", "Greetinngs by season and time of day"
             };
             Console.WriteLine("Your operations:");
@@ -66,7 +60,7 @@ namespace homework_tasks_13_08_2025
                         Homework();
                         break;
                     case 2:
-                        IsPositiveNumber(); 
+                        IsPositiveNumber();
                         break;
                     case 3:
                         IsEvenOdd();
@@ -191,7 +185,7 @@ namespace homework_tasks_13_08_2025
                     {
                         Console.WriteLine("this number is neither positive, nor not positive");
                     }
-                        InPositiveNumber = false;
+                    InPositiveNumber = false;
                 }
                 else
                 {
@@ -396,7 +390,7 @@ namespace homework_tasks_13_08_2025
             }
         }
         public static void Calculator() // 3 рівень
-        {    
+        {
             bool InCalculator = true;
             while (InCalculator)
             {
@@ -442,7 +436,7 @@ namespace homework_tasks_13_08_2025
                                     InCalculator = false;
                                 }
                             }
-                            else 
+                            else
                             {
                                 IfError("not correct input, you can write only 1 char");
                             }
@@ -583,7 +577,7 @@ namespace homework_tasks_13_08_2025
                     IfError("not correct input, in `your age:` you can write only integer, in `is today wensday:` only 1 char");
                 }
             }
-            
+
         }
         public static void Quiz() // з цього завдання  йде 5 рівень
         {
@@ -746,7 +740,7 @@ namespace homework_tasks_13_08_2025
                     IfError("not correct input, you can write only 1 char");
                 }
             }
-            while (IsTodaySunday != 'y' || IsTodaySunday != 'n'); 
+            while (IsTodaySunday != 'y' || IsTodaySunday != 'n');
             {
                 Console.WriteLine("Okay!");
             }
@@ -842,25 +836,25 @@ namespace homework_tasks_13_08_2025
             bool InLockingSystem = true;
             while (InLockingSystem)
             {
-                    Console.Write("Enter your Login: ");
-                    string EnteredLogin = Console.ReadLine();
-                    Console.Write("Enter your password: ");
-                    string EnteredPassword = Console.ReadLine();
-                    if (EnteredLogin != UserLogin || EnteredPassword != UserPassword)
+                Console.Write("Enter your Login: ");
+                string EnteredLogin = Console.ReadLine();
+                Console.Write("Enter your password: ");
+                string EnteredPassword = Console.ReadLine();
+                if (EnteredLogin != UserLogin || EnteredPassword != UserPassword)
+                {
+                    LockingTries--;
+                    Console.WriteLine("Not correct Login/Password, Try again");
+                    if (LockingTries == 0)
                     {
-                        LockingTries--;
-                        Console.WriteLine("Not correct Login/Password, Try again");
-                        if (LockingTries == 0)
-                        {
-                            Console.WriteLine("Access blocked");
-                            InLockingSystem = false;
-                        }
-                    }
-                    else if (EnteredLogin == UserLogin && EnteredPassword == UserPassword)
-                    {
-                        Console.WriteLine("Welcome to the system!");
+                        Console.WriteLine("Access blocked");
                         InLockingSystem = false;
                     }
+                }
+                else if (EnteredLogin == UserLogin && EnteredPassword == UserPassword)
+                {
+                    Console.WriteLine("Welcome to the system!");
+                    InLockingSystem = false;
+                }
             }
         }
         public static void QuessNumberWithHint() // 5 рівень
@@ -910,7 +904,7 @@ namespace homework_tasks_13_08_2025
             }
         }
         public static void HelpForSeasonAndTimesDay(int SelectedHour)
-        {  
+        {
             if (SelectedHour >= 6 && SelectedHour <= 11)
             {
                 Console.WriteLine("Good Morning!");
@@ -947,22 +941,30 @@ namespace homework_tasks_13_08_2025
                         }
                         switch (SelectedMonth)
                         {
-                            case 12: case 1: case 2:
+                            case 12:
+                            case 1:
+                            case 2:
                                 Console.WriteLine("Current month is winter");
                                 HelpForSeasonAndTimesDay(SelectedHour);
                                 InSeasonAndTimesDay = false;
                                 break;
-                            case 3: case 4: case 5:
+                            case 3:
+                            case 4:
+                            case 5:
                                 Console.WriteLine("Current month is spring");
                                 HelpForSeasonAndTimesDay(SelectedHour);
                                 InSeasonAndTimesDay = false;
                                 break;
-                            case 6: case 7: case 8:
+                            case 6:
+                            case 7:
+                            case 8:
                                 Console.WriteLine("Current month is summer");
                                 HelpForSeasonAndTimesDay(SelectedHour);
                                 InSeasonAndTimesDay = false;
                                 break;
-                            case 9: case 10: case 11:
+                            case 9:
+                            case 10:
+                            case 11:
                                 Console.WriteLine("Current month is autumm");
                                 HelpForSeasonAndTimesDay(SelectedHour);
                                 InSeasonAndTimesDay = false;

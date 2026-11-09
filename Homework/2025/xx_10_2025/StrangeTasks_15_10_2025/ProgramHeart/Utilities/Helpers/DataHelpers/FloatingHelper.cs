@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StrangeTasks_15_10_2025.ProgramHeart.Utilities.Helpers.DataHelpers;
+﻿namespace StrangeTasks_15_10_2025.ProgramHeart.Utilities.Helpers.DataHelpers;
 
 internal static class FloatingHelper
 {
@@ -19,7 +17,7 @@ internal static class FloatingHelper
 
             if (allowedAnswers != null && !allowedAnswers.Contains(userDouble))
             {
-                Console.WriteLine(invalidChoiceMessage ?? "Такої віповіді нема");
+                Console.WriteLine(invalidChoiceMessage ?? "Invalid choice");
                 continue;
             }
 

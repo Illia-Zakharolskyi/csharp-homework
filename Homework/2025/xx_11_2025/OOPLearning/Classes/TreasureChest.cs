@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class TreasureChest
 {
@@ -15,48 +9,52 @@ internal class TreasureChest
     {
         if (quantity <= 0)
         {
-            Console.WriteLine("кількість повинна бути більше ніж 0");
+            Console.WriteLine("the amount must be greater than 0");
             return;
         }
         if (treasures.ContainsKey(treasure))
         {
             treasures[treasure] += quantity;
-            Console.WriteLine($"додано ще {quantity} шт. скарби: {treasure}");
+            Console.WriteLine($"the amount of {quantity} units of treasure {treasure} has been added ");
         }
         else
         {
             treasures[treasure] = quantity;
-            Console.WriteLine($"додано новий скарб: {treasure}, кількість {quantity} шт.");
+            Console.WriteLine($"the amount of {quantity} units of treasure {treasure} has been added ");
         }
     }
 
     internal void OpenChest()
     {
-        string text = isOpen ? "скриня вже відкрита, нічого нового туди не додалося" : "скриню відкрито, ось що в ній є:";
+        string text = isOpen ? "treasure chest is already open, nothing new to add" : "treasure chest is now open, here's what's inside:";
         Console.WriteLine(text);
-        if (isOpen) return;
+        if (isOpen)
+        {
+            return;
+        }
+
         isOpen = true;
 
         if (treasures.Count == 0)
         {
-            Console.WriteLine("нічого");
+            Console.WriteLine("nothing here");
             return;
         }
 
         foreach (var treasure in treasures)
         {
-            Console.WriteLine($"- {treasure.Key}, кількість {treasure.Value} шт");
+            Console.WriteLine($"- {treasure.Key}, amount {treasure.Value} шт");
         }
     }
     internal void CloseChest()
     {
         if (!isOpen)
         {
-            Console.WriteLine("Скриню вже закрито");
+            Console.WriteLine("treasure chest is already closed");
             return;
         }
 
         isOpen = false;
-        Console.WriteLine("скриню закрито");
+        Console.WriteLine("treasure chest is now closed");
     }
 }

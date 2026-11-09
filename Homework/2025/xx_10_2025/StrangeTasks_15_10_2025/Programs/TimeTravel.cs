@@ -1,5 +1,4 @@
 ﻿using StrangeTasks_15_10_2025.ProgramHeart.Core.Interfaces;
-using System;
 
 namespace StrangeTasks_15_10_2025.Programs;
 
@@ -7,19 +6,19 @@ internal class TimeTravel : IRunnable
 {
     public void Run()
     {
-        Random rnd = new Random();
+        Random rnd = new();
         int startYear = 0;
-        int endYear = 0;
         double energy = 100.00;
 
         GetStartingYearOfTravel(ref startYear);
+        int endYear;
         GetEndYearOfTravel(rnd, startYear, out endYear);
 
-        Console.WriteLine($"початок рока подорожі в часі {startYear}, кінець подорожі {endYear}, єнергія до подорожі {energy}");
+        Console.WriteLine($"Starting year of travel: {startYear}, End year of travel: {endYear}, Energy before travel: {energy}");
 
         UpdateEnergyAfterTraveled(ref energy, startYear, endYear);
 
-        Console.WriteLine($"залишок енергії після подорожі: {energy:F2}");
+        Console.WriteLine($"Remaining energy after travel: {energy:F2}");
     }
     private static void GetStartingYearOfTravel(ref int year)
     {
@@ -34,6 +33,6 @@ internal class TimeTravel : IRunnable
         const double minusEnergyAfterOneYear = 0.01;
         int intervalBetweenYears = EndYear - startYear;
 
-        energy = energy / (intervalBetweenYears == 0 ? 1 : intervalBetweenYears * minusEnergyAfterOneYear);
+        energy /= (intervalBetweenYears == 0 ? 1 : intervalBetweenYears * minusEnergyAfterOneYear);
     }
 }

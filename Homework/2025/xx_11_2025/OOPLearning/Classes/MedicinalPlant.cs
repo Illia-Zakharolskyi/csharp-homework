@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class MedicinalPlant
 {
@@ -14,19 +8,19 @@ internal class MedicinalPlant
     {
         if (quantity <= 0)
         {
-            Console.WriteLine("кількість повинна бути більше ніж 0");
+            Console.WriteLine("the amount must be greater than 0");
             return;
         }
 
         if (collectedPlants.ContainsKey(plantName))
         {
             collectedPlants[plantName] += quantity;
-            Console.WriteLine($"Додано {quantity} шт. рослини {plantName}");
+            Console.WriteLine($"the amount added: {quantity} units of plant {plantName}");
         }
         else
         {
             collectedPlants[plantName] = quantity;
-            Console.WriteLine($"Додана нова рослина {plantName} в кількості {quantity}");
+            Console.WriteLine($"the new plant added: {plantName} in quantity {quantity}");
         }
     }
 
@@ -34,15 +28,15 @@ internal class MedicinalPlant
     {
         if (collectedPlants.Count == 0)
         {
-            Console.WriteLine("Лікарські рослини не зібрані");
+            Console.WriteLine("the medicinal plants have not been collected");
             return;
         }
 
-        Console.WriteLine("Зібрані лікарські рослини:");
+        Console.WriteLine("the collected medicinal plants:");
 
         foreach (var plant in collectedPlants)
         {
-            Console.WriteLine($"- {plant.Key}: {plant.Value} шт.");
+            Console.WriteLine($"- {plant.Key}: {plant.Value} units");
         }
     }
 
@@ -50,14 +44,14 @@ internal class MedicinalPlant
     {
         Dictionary<string, Dictionary<string, int>> recipes = new()
         {
-            { "зілля відновлення мани", new Dictionary<string, int> { {"Ромашка", 3 }, { "М'ята", 5 } } },
-            { "зілля лікування", new Dictionary<string, int> { { "Алоє", 4 }, { "Календула", 2 } } },
-            { "зілля сили", new Dictionary<string, int> { { "Женьшень", 2 }, { "Ехінацея", 3 } } }
+            { "the healing potion", new Dictionary<string, int> { {"Chamomile", 3 }, { "Mint", 5 } } },
+            { "the curing potion", new Dictionary<string, int> { { "Aloe", 4 }, { "Calendula", 2 } } },
+            { "the strength potion", new Dictionary<string, int> { { "Ginseng", 2 }, { "Echinacea", 3 } } }
         };
 
         if (!recipes.ContainsKey(medicineName))
         {
-            Console.WriteLine($"Рецепт для '{medicineName}' не знайдено.");
+            Console.WriteLine($"Recipe for '{medicineName}' not found.");
             return null;
         }
 
@@ -67,13 +61,13 @@ internal class MedicinalPlant
         {
             if (!collectedPlants.ContainsKey(plant.Key))
             {
-                Console.WriteLine($"Нема такої рослини: {plant.Key}");
+                Console.WriteLine($"the plant is not collected: {plant.Key}");
                 return null;
             }
 
             if (collectedPlants[plant.Key] < plant.Value)
             {
-                Console.WriteLine($"Недостатньо рослини: {plant.Key}. Потрібно {plant.Value} шт., а є {collectedPlants[plant.Key]}.");
+                Console.WriteLine($"Not enough of plant: {plant.Key}. Need {plant.Value} units, but only {collectedPlants[plant.Key]} are available.");
                 return null;
             }
 
@@ -81,12 +75,12 @@ internal class MedicinalPlant
 
             if (collectedPlants[plant.Key] == 0)
             {
-                Console.WriteLine($"Видалено рослину {plant.Key} через кількість у 0 штук");
-                collectedPlants.Remove(plant.Key);
+                Console.WriteLine($"the plant {plant.Key} has been removed due to zero quantity");
+                _ = collectedPlants.Remove(plant.Key);
             }
         }
 
-        Console.WriteLine($"Створено '{medicineName}'");
+        Console.WriteLine($"the medicine '{medicineName}' has been created");
         return medicineName;
     }
 }

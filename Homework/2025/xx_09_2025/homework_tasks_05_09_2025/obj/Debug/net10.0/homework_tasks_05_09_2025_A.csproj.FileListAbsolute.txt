@@ -1,0 +1,16 @@
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\bin\Debug\net10.0\homework_tasks_05_09_2025_A.exe
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\bin\Debug\net10.0\homework_tasks_05_09_2025_A.deps.json
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\bin\Debug\net10.0\homework_tasks_05_09_2025_A.runtimeconfig.json
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\bin\Debug\net10.0\homework_tasks_05_09_2025_A.dll
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\bin\Debug\net10.0\homework_tasks_05_09_2025_A.pdb
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.AssemblyInfoInputs.cache
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.AssemblyInfo.cs
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.csproj.CoreCompileInputs.cache
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.sourcelink.json
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.dll
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\refint\homework_tasks_05_09_2025_A.dll
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.pdb
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework_tasks_05_09_2025_A.genruntimeconfig.cache
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\ref\homework_tasks_05_09_2025_A.dll
+C:\Users\ATGA15\Documents\GitHub\csharp-homework\Homework\2025\xx_09_2025\homework_tasks_05_09_2025\obj\Debug\net10.0\homework.33D8300E.Up2Date

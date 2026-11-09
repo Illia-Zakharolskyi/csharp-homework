@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class Recipe
 {
@@ -16,7 +9,7 @@ internal class Recipe
     {
         if (string.IsNullOrEmpty(ingredient) || string.IsNullOrEmpty(quantity))
         {
-            Console.WriteLine("Не корректна назва чи кількість інгрідіентів");
+            Console.WriteLine("Invalid ingredient name or quantity");
             return;
         }
         if (ingredients.ContainsKey(ingredient))
@@ -28,41 +21,41 @@ internal class Recipe
             ingredients[ingredient] = quantity;
         }
 
-        Console.WriteLine($"Новий інгрідіент - {ingredient}, в кількості {ingredients[ingredient]}");
+        Console.WriteLine($"New ingredient - {ingredient}, in quantity {ingredients[ingredient]}");
     }
     internal void ChangeIngredientQuantity(string ingredient, string quantity)
     {
         if (!ingredients.ContainsKey(ingredient))
         {
-            Console.WriteLine("Такого інгрідіенту немає");
+            Console.WriteLine("The ingredient does not exist");
             return;
         }
 
         ingredients[ingredient] = quantity;
 
-        Console.WriteLine($"Кількість {ingredient} зінилася на {quantity}");
+        Console.WriteLine($"Quantity of {ingredient} has been changed to {quantity}");
     }
     internal void RemoveIngredient(string ingredient)
     {
         if (!ingredients.ContainsKey(ingredient))
         {
-            Console.WriteLine("Такого інгрідіенту немає");
+            Console.WriteLine("The ingredient does not exist");
             return;
         }
 
-        ingredients.Remove(ingredient);
+        _ = ingredients.Remove(ingredient);
 
-        Console.WriteLine($"Інгрідіент {ingredient} видалено з рецепту");
+        Console.WriteLine($"The ingredient {ingredient} has been removed from the recipe");
     }
     internal void ShowRecipeIngredients()
     {
         if (ingredients.Count == 0)
         {
-            Console.WriteLine("Інгрідієнти відсутні");
+            Console.WriteLine("Ingredients are missing");
             return;
         }
 
-        Console.WriteLine($"Інгрідієнти для рецепту '{Name}':");
+        Console.WriteLine($"Ingredients for recipe '{Name}':");
 
         foreach (var ingredient in ingredients)
         {

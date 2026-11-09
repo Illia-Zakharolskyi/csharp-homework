@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class Magic
 {
     internal void CastSpell(string spellName)
     {
-        Console.WriteLine($"використано заклинання: {spellName}");
+        Console.WriteLine($"the spell cast: {spellName}");
     }
     internal void UsePotion(string potionType)
     {
-        Console.WriteLine($"використано зілля: {potionType}");
+        Console.WriteLine($"the potion used: {potionType}");
     }
 }

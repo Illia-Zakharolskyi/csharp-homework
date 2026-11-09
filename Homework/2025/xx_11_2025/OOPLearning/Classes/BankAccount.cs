@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OOPLearning.Classes;
+﻿namespace OOPLearning.Classes;
 
 internal class BankAccount
 {
@@ -9,24 +7,24 @@ internal class BankAccount
 
     internal void ShowAccountInfo()
     {
-        Console.WriteLine($"Власник рахунку: {OwnerName}, кошти: {Balance:F2}");
+        Console.WriteLine($"owner of the account: {OwnerName}, funds: {Balance:F2}");
     }
 
     internal void WithdrawMoney(decimal amount)
     {
         if (amount <= 0 || amount > Balance)
         {
-            Console.WriteLine("Сума для зняття некоректна або недостатньо коштів");
+            Console.WriteLine("Invalid withdrawal amount or insufficient funds");
             return;
 
         }
         Balance -= amount;
-        Console.WriteLine($"З рахунку знялося {amount} грошей");
+        Console.WriteLine($"Amount withdrawn from the account: {amount}");
     }
 
     internal void DepositMoney(decimal amount)
     {
         Balance += amount;
-        Console.WriteLine($"на рахунок прийшли {amount} грошей");
+        Console.WriteLine($"Amount deposited to the account: {amount}");
     }
 }

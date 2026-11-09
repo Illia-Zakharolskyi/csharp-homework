@@ -1,5 +1,4 @@
-﻿using System;
-namespace StrangeTasks_15_10_2025.ProgramHeart.Utilities.Helpers.CollectionHelpers;
+﻿namespace StrangeTasks_15_10_2025.ProgramHeart.Utilities.Helpers.CollectionHelpers;
 
 internal static class ListHelper
 {
@@ -9,7 +8,7 @@ internal static class ListHelper
 
         if (list == null || list.Count == 0)
         {
-            Console.WriteLine("пустий список");
+            Console.WriteLine("Empty list");
             return;
         }
 

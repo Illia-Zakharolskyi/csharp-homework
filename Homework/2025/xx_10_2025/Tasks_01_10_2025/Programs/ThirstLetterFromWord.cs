@@ -1,5 +1,4 @@
-﻿using System;
-using Tasks_01_10_2025.ProgramHeart.Core.Interfaces;
+﻿using Tasks_01_10_2025.ProgramHeart.Core.Interfaces;
 using Tasks_01_10_2025.ProgramHeart.Utilities.InputHelpers;
 
 namespace Tasks_01_10_2025.Programs;
@@ -8,10 +7,10 @@ internal class ThirstLetterFromWord : IRunnable
 {
     public void Run()
     {
-        StringHelper.WriteTitle("Ласкаво просимо до Витягання Першої Літери зі Слова/!", '/', "", "", true);
+        StringHelper.WriteTitle("Welcome to First Letter Extractor/!", '/', "", "", true);
 
         // приймаємо дані
-        string userWord = StringHelper.ReadString("Введи слово: ", "не коректний ввід, спробуй ще");
+        string userWord = StringHelper.ReadString("Enter a word: ", "invalid input, please try again");
 
         // виводимо результат
         Console.WriteLine(GetThirstLetter(userWord));

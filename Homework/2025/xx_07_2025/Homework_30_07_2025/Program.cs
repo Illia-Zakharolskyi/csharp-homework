@@ -29,9 +29,9 @@ namespace Tasks
                 }
             }
         }
-        static void Task1() // калькулятор настрою
+        static void Task1() // Mood Calculator
         {
-            Console.Write("Hello! What´s your name? ");
+            Console.Write("Hi! What´s your name? ");
             string user_name = Console.ReadLine();
             Console.Write("How old are you? ");
             int user_age = Convert.ToInt32(Console.ReadLine());
@@ -39,16 +39,16 @@ namespace Tasks
             bool user_mood = Convert.ToBoolean(Console.ReadLine());
             if (user_mood == true)
             {
-                Console.WriteLine($"Nice to meet you, {user_name}. I am too {user_age} years old. Your mood is good? awesome!");
+                Console.WriteLine($"Nice to meet you, {user_name}. I am {user_age} too! You're in a good mood? awesome:)");
             }
             else if (user_mood == false)
             {
-                Console.WriteLine($"Nice to meet you, {user_name}. I am too {user_age} years old. your mood is bad? that´s bad");
+                Console.WriteLine($"Nice to meet you, {user_name}. I am {user_age} too! You're not in a good mood? that´s bad:(");
             }
         }
-        static void Task2() // обчислення площі  прямокутника
+        static void Task2() // calculating the area of ​​a rectangle
         {
-            Console.Write("What do you count in?(sentimeters/meters/...) ");
+            Console.Write("In what unit should it be measured?(sentimeters/meters/...) ");
             string users_count = Console.ReadLine();
             Console.Write("Enter the square`s width: ");
             double square_width = Convert.ToDouble(Console.ReadLine());
@@ -57,9 +57,9 @@ namespace Tasks
             double squares_area = square_width * square_height;
             Console.WriteLine($"Squares area is: {squares_area} {users_count}²");
         }
-        static void Task3() // конвертер валют
+        static void Task3() // currency converter
         {
-            Console.Write("Convert grivnu to dollars? if y then yes, if n then convert dollars to grivnu (y/n) ");
+            Console.Write("Convert currency? y = grivnu to dollars, n = dollars to grivnu (y/n) ");
             char user_choice = Char.ToLower(Convert.ToChar(Console.ReadLine()));
             if (user_choice == 'y')
             {
@@ -76,11 +76,11 @@ namespace Tasks
                 Console.WriteLine($"${users_dollars} in grivni is: {converted_result:F2}");
             }
         }
-        static void Task4() // вгадай моє число
+        static void Task4() // Guess the number
         {
             Random rnd = new Random();
             int secret_number = rnd.Next(1, 6);
-            Console.Write("quess secret number(from 0 to 5): ");
+            Console.Write("guess secret number(from 0 to 5): ");
             int user_quess = Convert.ToInt32(Console.ReadLine());
             if (user_quess == secret_number)
             {
@@ -91,12 +91,15 @@ namespace Tasks
                 Console.WriteLine($"You lose! the secret number was {secret_number}");
             }
         }
-        static void Task5() // Про себе
+        static void Task5() // About myself
         {
-            string my_name = "Illia";
-            int my_age = 13;
-            string my_favorite_color = "black";
-            Console.WriteLine($"My name is {my_name}, I`m {my_age} years old, my favourite color is {my_favorite_color}");
+            string my_name = "Unknown";
+            int my_age = 6769;
+            string my_favorite_color = "pink";
+            Console.WriteLine($"I'm {my_name}. I have been living on this planet for {my_age} years. I wanted to learn everything about the earth. " +
+                $"I learned. and I regretted it. Ever since I found THIS out, my life no longer has any meaning. All these years... and the secret is... " +
+                $"oh, by the way! my favourite color is {my_favorite_color}");
+
             my_name = "Andrey";
             my_age = 16;
             my_favorite_color = "gray";
