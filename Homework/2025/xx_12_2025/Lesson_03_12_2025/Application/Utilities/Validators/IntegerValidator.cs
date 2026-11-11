@@ -1,7 +1,5 @@
-﻿using System;
+﻿namespace Lesson_03_12_2025.Application.Utilities.Validators;
 
-namespace Lesson_03_12_2025.Application.Utilities.Validators;
-    
 internal static class IntegerValidator
 {
     internal static int ReadInteger(string promptMessage, string invalidInputMessage, List<int>? allowedAnswers = null, string? invalidChoiceMessage = null)
@@ -19,7 +17,7 @@ internal static class IntegerValidator
 
             if (allowedAnswers != null && !allowedAnswers.Contains(userInteger))
             {
-                Console.WriteLine(invalidChoiceMessage ?? "Такої віповіді нема");
+                Console.WriteLine(invalidChoiceMessage ?? "Invalid choice");
                 continue;
             }
 

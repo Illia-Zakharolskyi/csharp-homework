@@ -1,6 +1,4 @@
-﻿using System;
-
-using OOPLearning3.Domain.Interfaces;
+﻿using OOPLearning3.Domain.Interfaces;
 
 namespace OOPLearning3.Domain.Models;
 
@@ -17,18 +15,18 @@ internal class Player
 
     internal void DisplayInfoByCreating()
     {
-        Console.WriteLine($"Создано нового персонажу з іменем {Name}");
+        Console.WriteLine($"Created a new character with the name {Name}");
     }
 
     internal void WeaponAttack()
     {
         if (EquippedWeapon == null)
         {
-            Console.WriteLine($"У {Name} немає зброї щоб атакувати");
+            Console.WriteLine($" {Name} has no weapon to attack with");
             return;
         }
 
-        Console.Write($"{Name} Атакує ");
+        Console.Write($"{Name} attacks ");
         EquippedWeapon.Attack();
     }
 
@@ -36,11 +34,11 @@ internal class Player
     {
         if (EquippedWeapon == null)
         {
-            Console.WriteLine($"у {Name} Немає зброї щоб атакувати");
+            Console.WriteLine($" {Name} has no weapon to perform a special attack with");
             return;
         }
 
-        Console.Write($"{Name} завдає спеціальний удар ");
+        Console.Write($"{Name} performs a special attack ");
         EquippedWeapon.SpecialAttack();
     }
 
@@ -48,11 +46,11 @@ internal class Player
     {
         if (EquippedWeapon == null)
         {
-            Console.WriteLine($"нема екіпірованої зброї у {Name} щоб показати статистику");
+            Console.WriteLine($" {Name} has no weapon equipped to display stats for");
             return;
         }
 
-        Console.Write($"{Name} має ");
+        Console.Write($"{Name} has ");
         EquippedWeapon.DisplayStats();
     }
 
@@ -60,16 +58,16 @@ internal class Player
     {
         if (EquippedWeapon == null)
         {
-            Console.WriteLine($"нема екіпірованої зброї у {Name} щоб загострити її");
+            Console.WriteLine($" {Name} has no weapon equipped to sharpen");
             return;
         }
         if (EquippedWeapon is not ISharpenable)
         {
-            Console.WriteLine($"екіпірована зброя у {Name} не може бути загостренною");
+            Console.WriteLine($" {Name} has an unsharpenable weapon equipped");
             return;
         }
 
-        Console.Write($"{Name} успішно загострив {EquippedWeapon.Name}! ");
+        Console.Write($"{Name} successfully sharpened {EquippedWeapon.Name}! ");
         ISharpenable sharpenable = (ISharpenable)EquippedWeapon;
         sharpenable.Sharpen();
     }
@@ -78,16 +76,16 @@ internal class Player
     {
         if (EquippedWeapon == null)
         {
-            Console.WriteLine($"нема екіпірованої зброї у {Name} щоб перезарядити її");
+            Console.WriteLine($" {Name} has no weapon equipped to reload");
             return;
         }
         if (EquippedWeapon is not IReloadable)
         {
-            Console.WriteLine($"екіпірована зброя у {Name} не може перезаряджатися");
+            Console.WriteLine($" {Name} has an unreloadable weapon equipped");
             return;
         }
 
-        Console.Write($"{Name} успішно перезарядив {EquippedWeapon.Name}! ");
+        Console.Write($"{Name} successfully reloaded {EquippedWeapon.Name}! ");
         IReloadable reloadable = (IReloadable)EquippedWeapon;
         reloadable.Reload();
     }

@@ -1,5 +1,4 @@
 ﻿// .Net 9.0
-using System;
 
 // Application
 using CardGame.src.Application.Utilities.Validators;
@@ -20,18 +19,18 @@ public class Character
 
     internal int LastDamageDealt = 0;
 
-    private List<Card> Deck = new();
+    private readonly List<Card> Deck = new();
     internal List<Card> Hand { get; private set; }
 
     private readonly Random _rnd = new();
 
     private readonly Dictionary<string, double> _characterManaRegen = new()
     {
-        { "Вампір", 0.1 },
-        { "Привід", 0.1 },
-        { "Перевертень", 0.1 },
-        { "Німфа", 0.1 },
-        { "Відьма", 0.07 }
+        { "Vampire", 0.1 },
+        { "Ghost", 0.1 },
+        { "Werewolf", 0.1 },
+        { "Nymph", 0.1 },
+        { "Witch", 0.07 }
     };
 
     internal Character(string name, int maxHealth, int maxMana, bool isPlayer, List<Card> deck)
@@ -62,14 +61,18 @@ public class Character
     {
         CurrentHealth += amount;
         if (CurrentHealth > MaxHealth)
+        {
             CurrentHealth = MaxHealth;
+        }
     }
 
     internal void UseMana(Card card)
     {
         CurrentMana -= card.ManaCost;
         if (CurrentMana < 0)
+        {
             CurrentMana = 0;
+        }
     }
 
     internal void HandClear()
@@ -79,7 +82,10 @@ public class Character
 
     internal void DrawCard()
     {
-        if (Deck.Count <= 0) return;
+        if (Deck.Count <= 0)
+        {
+            return;
+        }
 
         double roll = _rnd.NextDouble() * 100;
 
@@ -91,17 +97,17 @@ public class Character
             { "Legendary", 5 }
         };
 
-        double cumulative = 0; 
+        double cumulative = 0;
         string? selectedRarity = null;
 
-        foreach (var rc in rarityChances) 
-        { 
-            cumulative += rc.Value; 
+        foreach (var rc in rarityChances)
+        {
+            cumulative += rc.Value;
 
-            if (roll <= cumulative) 
-            { 
-                selectedRarity = rc.Key; break; 
-            } 
+            if (roll <= cumulative)
+            {
+                selectedRarity = rc.Key; break;
+            }
         }
 
         List<Card> filteredDeck = Deck.Where(card => card.Rarity == selectedRarity).ToList();
@@ -128,33 +134,33 @@ public class Character
 
         if (availableCards.Count == 0)
         {
-            Console.WriteLine("У вас недостатньо мани для використання будь-якої картки. Пропускаєте хід.");
+            Console.WriteLine("You don't have enough mana to use any cards. Skipping turn.");
             return;
         }
 
         int userChoice = InetegerValidator.ReadInteger(
-            promptMessage: "Виберіть картку для атаки (введіть номер картки): ",
-            invalidInputMessage: "Невірне введення. Спробуйте ще раз.",
+            promptMessage: "Choose a card to attack with (enter the card number): ",
+            invalidInputMessage: "Invalid input. Please try again.",
             allowedAnswers: Enumerable.Range(1, Hand.Count).ToList(),
-            invalidChoiceMessage: "Такої картки немає в руці."
+            invalidChoiceMessage: "That card is not in your hand."
         );
 
         Card playerCard = Hand[userChoice - 1];
 
         if (playerCard.ManaCost > CurrentMana)
         {
-            Console.WriteLine("Недостатьно мани для карточки, вибери іншу");
+            Console.WriteLine("Not enough mana for that card, choose another.");
             Attack(target);
             return;
         }
 
-        Hand.Remove(playerCard);
+        _ = Hand.Remove(playerCard);
         UseMana(playerCard);
         target.TakeDamage(this, playerCard);
         LastDamageDealt = playerCard.AttackPower;
 
-        Console.WriteLine($"гравець використував картку '{playerCard.Name}' завдаючи ворогу {playerCard.AttackPower} одиниць збитку");
-        return; 
+        Console.WriteLine($"Player used card '{playerCard.Name}' dealing {playerCard.AttackPower} damage to the enemy.");
+        return;
     }
     private void EnemyAttackLogic(Character target)
     {
@@ -162,7 +168,7 @@ public class Character
 
         if (availableCards.Count == 0)
         {
-            Console.WriteLine("Ворог не має достатньо мани для використання карток і пропускає хід.");
+            Console.WriteLine("The enemy doesn't have enough mana to use any cards and skips their turn.");
             return;
         }
 
@@ -171,17 +177,17 @@ public class Character
         int choice = _rnd.Next(availableCards.Count);
         Card enemyCard = availableCards[choice];
 
-        Hand.Remove(enemyCard);
+        _ = Hand.Remove(enemyCard);
         UseMana(enemyCard);
         target.TakeDamage(this, enemyCard);
         LastDamageDealt = enemyCard.AttackPower;
 
-        Console.WriteLine($"Ворог використував картку '{enemyCard.Name}' завдаючи гравцю {enemyCard.AttackPower} одиниць збитку");
+        Console.WriteLine($"The enemy used card '{enemyCard.Name}' dealing {enemyCard.AttackPower} damage to the player.");
         return;
     }
-    private void RegenerateManaPercent(double percent) 
-    { 
-        int regen = (int)Math.Ceiling(MaxMana * percent); 
-        CurrentMana = Math.Min(MaxMana, CurrentMana + regen); 
+    private void RegenerateManaPercent(double percent)
+    {
+        int regen = (int)Math.Ceiling(MaxMana * percent);
+        CurrentMana = Math.Min(MaxMana, CurrentMana + regen);
     }
 }

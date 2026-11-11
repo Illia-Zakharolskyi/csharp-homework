@@ -1,7 +1,4 @@
 ﻿// .Net 9.0
-using System;
-using System.Text.Json.Serialization;
-
 namespace CardGame.src.Domain.Models;
 
 public class Card
@@ -24,29 +21,29 @@ public class Card
         int width = Name.Length + 4;
 
         string rarityText = $"{Rarity}";
-        string atkText = $"{AttackPower} Збитку";
-        string manaText = $"{ManaCost} Мани";
+        string atkText = $"{AttackPower} Damage";
+        string manaText = $"{ManaCost} Mana";
 
-        int contentWidth = width - 2; 
+        int contentWidth = width - 2;
 
         int rarityPaddingLeft = Math.Max(0, (contentWidth - rarityText.Length) / 2);
         int rarityPaddingRight = Math.Max(0, contentWidth - rarityText.Length - rarityPaddingLeft);
-        int atkPaddingLeft = Math.Max(0, (contentWidth - atkText.Length) / 2); 
+        int atkPaddingLeft = Math.Max(0, (contentWidth - atkText.Length) / 2);
         int atkPaddingRight = Math.Max(0, contentWidth - atkText.Length - atkPaddingLeft);
         int manaPaddingLeft = Math.Max(0, (contentWidth - manaText.Length) / 2);
         int manaPaddingRight = Math.Max(0, contentWidth - manaText.Length - manaPaddingLeft);
 
-        return new[] 
-        { 
-            $"|{new string('-', width)}|", 
-            $"|  {Name}  |", 
+        return new[]
+        {
+            $"|{new string('-', width)}|",
+            $"|  {Name}  |",
             $"|{new string(' ', width)}|",
             $"| {new string(' ', rarityPaddingLeft)}{rarityText}{new string(' ', rarityPaddingRight)} |",
             $"|{new string(' ', width)}|",
             $"| {new string(' ', atkPaddingLeft)}{atkText}{new string(' ', atkPaddingRight)} |",
             $"|{new string(' ', width)}|",
             $"| {new string(' ', manaPaddingLeft)}{manaText}{new string(' ', manaPaddingRight)} |",
-            $"|{new string('-', width)}|" 
+            $"|{new string('-', width)}|"
         };
     }
 }

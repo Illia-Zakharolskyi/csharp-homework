@@ -1,33 +1,28 @@
 ﻿// .Net 9.0
-using System;
 
 // Data
 using CardGame.Data.UserProfile;
-
+using CardGame.src.Application.Storages;
 // Application
 using CardGame.src.Application.Utilities.Validators;
-
 // Domain
-using CardGame.src.Domain.Models;
 
 // Infastructure
 using CardGame.src.Infastructure.DTO;
 using CardGame.src.Infastructure.Loaders;
-
-// UI
-using CardGame.src.UI.Models;
 using CardGame.src.UI.Dispatchers;
 using CardGame.src.UI.Interfaces;
-using CardGame.src.Application.Storages;
+// UI
+using CardGame.src.UI.Models;
 
 namespace CardGame.src.UI.Menus;
 
 internal class CharacterSelectionMenu : Menu, IMenu
 {
-    private JsonLoader _loader = new JsonLoader();
-    internal CharacterSelectionMenu(MenuDispatcher dispatcher, UserChoices userChoices, UserChoicesStorage userChoicesStorage) : base(dispatcher, userChoices, userChoicesStorage) 
-    { 
-        
+    private readonly JsonLoader _loader = new();
+    internal CharacterSelectionMenu(MenuDispatcher dispatcher, UserChoices userChoices, UserChoicesStorage userChoicesStorage) : base(dispatcher, userChoices, userChoicesStorage)
+    {
+
     }
 
     public void Display()
@@ -39,8 +34,8 @@ internal class CharacterSelectionMenu : Menu, IMenu
     {
         return new Dictionary<int, (string description, Action action)>()
         {
-            { 0, ("назад", () => _dispatcher.PopMenu()) },
-            { 1, ("вибрати персонажа", () => ChooseCharacter()) }
+            { 0, ("exit", () => _dispatcher.PopMenu()) },
+            { 1, ("choose character", () => ChooseCharacter()) }
         };
     }
 
@@ -53,21 +48,21 @@ internal class CharacterSelectionMenu : Menu, IMenu
         List<CharacterInfo> characterPaths = _loader.Load<CharacterInfo>(fullCharacterListPath);
         Dictionary<string, CharacterInfo> characterMap = characterPaths.ToDictionary(c => c.Name, c => c);
 
-        Console.WriteLine($"{"Персонаж", -10} | {"номер"}");
+        Console.WriteLine($"{"Character",-10} | {"Number"}");
         Console.WriteLine(new string('-', 40));
 
         foreach (var key in characterMap.Keys.Select((name, index) => (name, index)))
         {
-            Console.WriteLine($"{key.name, -10} | {key.index + 1}");
+            Console.WriteLine($"{key.name,-10} | {key.index + 1}");
         }
 
         Console.WriteLine(new string('-', 40));
 
         int userChoice = InetegerValidator.ReadInteger(
-            promptMessage: "Введіть номер персонажа(якого бажаєте вибрати): ",
-            invalidInputMessage: "Некоректне введення, спробуйте ціле число.",
+            promptMessage: "Enter the number of the character you want to choose: ",
+            invalidInputMessage: "Invalid input, please enter a whole number.",
             allowedAnswers: Enumerable.Range(1, characterMap.Count).ToList(),
-            invalidChoiceMessage: "Такого номеру немає, введіть коректний номер."
+            invalidChoiceMessage: "That number is not available, please enter a valid number."
         );
 
         string selectedCharacterName = characterMap.Keys.ElementAt(userChoice - 1);
@@ -75,8 +70,8 @@ internal class CharacterSelectionMenu : Menu, IMenu
         _userChoices.SelectedCharacterName = selectedCharacterName;
         _userChoicesStorage.Save(_userChoices);
 
-        Console.WriteLine($"Ви вибрали персонажа: {selectedCharacterName}");
-        Console.ReadKey(true);
+        Console.WriteLine($"You have selected the character: {selectedCharacterName}");
+        _ = Console.ReadKey(true);
         return;
     }
 }

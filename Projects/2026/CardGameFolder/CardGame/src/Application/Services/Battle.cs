@@ -1,6 +1,4 @@
 ﻿// .Net 9.0
-using System;
-using System.Text;
 
 // Application
 using CardGame.src.Application.Storages;
@@ -19,26 +17,26 @@ internal class Battle
     private readonly UserStatisticsStorage _userStatisticsStorage;
     private bool _isPlayerTurn = false;
 
-    internal Battle(Character player, Character enemy, CardFormatter formatter, UserStatisticsStorage userStatisticsStorage) 
-    { 
-        _player = player; 
-        _enemy = enemy; 
-        _cardsFormatter = formatter; 
+    internal Battle(Character player, Character enemy, CardFormatter formatter, UserStatisticsStorage userStatisticsStorage)
+    {
+        _player = player;
+        _enemy = enemy;
+        _cardsFormatter = formatter;
         _userStatisticsStorage = userStatisticsStorage;
     }
     internal void Run()
     {
         Console.Clear();
-        Console.ForegroundColor = ConsoleColor.Red; 
-        Console.WriteLine("╔═══════════════════════════════════════════════════════════╗"); 
-        Console.WriteLine("║ ПОПЕРЕДЖЕННЯ! Зробіть консоль на весь екран перед битвою, ║"); 
-        Console.WriteLine("║ Інакше можливі графічні баги при відображенні карт.       ║"); 
-        Console.WriteLine("╚═══════════════════════════════════════════════════════════╝"); 
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("╔═════════════════════════════════════════════════════════════╗");
+        Console.WriteLine("║ WARNING! Set the console to full screen before the battle.  ║");
+        Console.WriteLine("║ Otherwise, graphical bugs may occur when displaying cards.  ║");
+        Console.WriteLine("╚═════════════════════════════════════════════════════════════╝");
         Console.ResetColor();
 
         var _userStatistics = _userStatisticsStorage.Load();
 
-        Console.ReadKey(true);
+        _ = Console.ReadKey(true);
 
         while (_player.IsAlive() && _enemy.IsAlive())
         {
@@ -53,12 +51,12 @@ internal class Battle
                 _enemy.DrawCard();
             }
 
-            string enemyHeader = "КАРТИ ПРОТИВНИКА";
-            string playerHeader = "ВАШІ КАРТИ";
-            string playerInfo = $"Ви({_player.Name}): {_player.CurrentHealth}/{_player.MaxHealth} HP, {_player.CurrentMana}/{_player.MaxMana} Mana";
-            string enemyInfo = $"Ворог({_enemy.Name}):  {_enemy.CurrentHealth}/{_enemy.MaxHealth} HP, {_enemy.CurrentMana}/{_enemy.MaxMana} Mana";
-            int left = Math.Max(0, Console.WindowWidth / 2 - playerHeader.Length); 
-            int right = Math.Max(0, Console.WindowWidth / 2); 
+            string enemyHeader = "THE OPPONENT'S CARDS";
+            string playerHeader = "YOUR CARDS";
+            string playerInfo = $"You({_player.Name}): {_player.CurrentHealth}/{_player.MaxHealth} HP, {_player.CurrentMana}/{_player.MaxMana} Mana";
+            string enemyInfo = $"Opponent({_enemy.Name}):  {_enemy.CurrentHealth}/{_enemy.MaxHealth} HP, {_enemy.CurrentMana}/{_enemy.MaxMana} Mana";
+            int left = Math.Max(0, Console.WindowWidth / 2 - playerHeader.Length);
+            int right = Math.Max(0, Console.WindowWidth / 2);
 
             Console.Clear();
 
@@ -80,26 +78,32 @@ internal class Battle
             }
             else
             {
-                Console.WriteLine("Хід ворога...");
+                Console.WriteLine("Opponent's turn...");
                 _userStatistics.OpponentMovesMade++;
                 Thread.Sleep(2000);
                 _enemy.Attack(_player);
                 _userStatistics.TotalOpponentDamageDealt += _enemy.LastDamageDealt;
             }
 
-            Console.ReadKey(true);
+            _ = Console.ReadKey(true);
         }
 
         _userStatistics.GamesPlayed++;
 
-        if (_player.IsAlive()) _userStatistics.GamesWon++;
-        else _userStatistics.GamesLost++;
+        if (_player.IsAlive())
+        {
+            _userStatistics.GamesWon++;
+        }
+        else
+        {
+            _userStatistics.GamesLost++;
+        }
 
         _userStatisticsStorage.Save(_userStatistics);
 
         Console.Clear();
 
-        string winner = _player.IsAlive() ? "гравець" : "ворог";
-        Console.WriteLine($"{winner} Виграв!");
+        string winner = _player.IsAlive() ? "Player" : "Opponent";
+        Console.WriteLine($"{winner} Wins!");
     }
 }

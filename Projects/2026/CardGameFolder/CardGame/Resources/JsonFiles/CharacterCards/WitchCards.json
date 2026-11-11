@@ -1,48 +1,48 @@
 ﻿[
   {
-    "Name": "темна магія",
+    "Name": "dark magic",
     "Rarity": "Common",
     "AttackPower": 2,
     "ManaCost": 2
   },
   {
-    "Name": "секретний обряд",
+    "Name": "secret ritual",
     "Rarity": "Common",
     "AttackPower": 3,
     "ManaCost": 3
   },
   {
-    "Name": "зілля прокляття",
+    "Name": "potion of the curse",
     "Rarity": "Rare",
     "AttackPower": 4,
     "ManaCost": 4
   },
   {
-    "Name": "зілля страху",
+    "Name": "potion of fear",
     "Rarity": "Rare",
     "AttackPower": 3,
     "ManaCost": 4
   },
   {
-    "Name": "зілля даремності",
+    "Name": "potion of worthlessness",
     "Rarity": "Rare",
     "AttackPower": 5,
     "ManaCost": 7
   },
   {
-    "Name": "чарівний вогонь",
+    "Name": "magical fire",
     "Rarity": "Epic",
     "AttackPower": 5,
     "ManaCost": 7
   },
   {
-    "Name": "містичне заклинання",
+    "Name": "mystical spell",
     "Rarity": "Epic",
     "AttackPower": 6,
     "ManaCost": 9
   },
   {
-    "Name": "королева відьм",
+    "Name": "queen of witches",
     "Rarity": "Legendary",
     "AttackPower": 6,
     "ManaCost": 12

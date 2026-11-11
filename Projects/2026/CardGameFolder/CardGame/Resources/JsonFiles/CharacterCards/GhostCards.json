@@ -1,48 +1,48 @@
 ﻿[
   {
-    "Name": "скримак",
+    "Name": "scream",
     "Rarity": "Common",
     "AttackPower": 3,
     "ManaCost": 4
   },
   {
-    "Name": "прохолодний подих",
+    "Name": "cold breath",
     "Rarity": "Common",
     "AttackPower": 2,
     "ManaCost": 2
   },
   {
-    "Name": "примарний дотик",
+    "Name": "primordial touch",
     "Rarity": "Rare",
     "AttackPower": 4,
     "ManaCost": 6
   },
   {
-    "Name": "жахливий вой",
+    "Name": "scream",
     "Rarity": "Rare",
     "AttackPower": 5,
     "ManaCost": 7
   },
   {
-    "Name": "похмура завіса",
+    "Name": "cold breath",
     "Rarity": "Rare",
     "AttackPower": 3,
     "ManaCost": 5
   },
   {
-    "Name": "атака з тіні",
+    "Name": "primordial touch",
     "Rarity": "Epic",
     "AttackPower": 6,
     "ManaCost": 9
   },
   {
-    "Name": "крижаний шепіт",
+    "Name": "cold breath",
     "Rarity": "Epic",
     "AttackPower": 4,
     "ManaCost": 7
   },
   {
-    "Name": "король примар",
+    "Name": "primordial touch",
     "Rarity": "Legendary",
     "AttackPower": 6,
     "ManaCost": 12

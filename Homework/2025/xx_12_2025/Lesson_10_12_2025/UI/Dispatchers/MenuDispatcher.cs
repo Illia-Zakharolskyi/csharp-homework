@@ -1,18 +1,16 @@
 ﻿// .Net 9.0
-using System;
 
 // Application
 using Lesson_10_12_2025.Application.Utilities.Validators;
 
 // UI
-using Lesson_10_12_2025.UI.Interfaces;
 using Lesson_10_12_2025.UI.Models;
 
 namespace Lesson_10_12_2025.UI.Dispatchers;
 
 internal static class MenuDispatcher
 {
-    private static Stack<Menu> menuStack = new();
+    private static readonly Stack<Menu> menuStack = new();
 
     internal static void Run(Menu menu)
     {
@@ -27,14 +25,14 @@ internal static class MenuDispatcher
 
 
             int userChoice = InetegerValidator.ReadInteger(
-                promptMessage: "Введіть ваш вибір: ",
-                invalidInputMessage: "Некоректне введення. Спробуйте ще раз.",
+                promptMessage: "enter your choice: ",
+                invalidInputMessage: "Invalid input. Please try again.",
                 allowedAnswers: new List<int>(currentMenuActionMap.Keys),
-                invalidChoiceMessage: "Такої віповіді нема"
+                invalidChoiceMessage: "Invalid choice."
             );
 
             currentMenuActionMap[userChoice].action.Invoke();
-            Console.ReadKey();
+            _ = Console.ReadKey();
         }
     }
 
@@ -46,6 +44,8 @@ internal static class MenuDispatcher
     internal static void PopMenu()
     {
         if (menuStack.Count > 0)
-            menuStack.Pop();
+        {
+            _ = menuStack.Pop();
+        }
     }
 }

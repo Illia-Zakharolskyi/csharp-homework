@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Lesson_03_12_2025.Application.Utilities.Validators;
+﻿namespace Lesson_03_12_2025.Application.Utilities.Validators;
 
 internal static class StringValidator
 {
@@ -19,11 +17,11 @@ internal static class StringValidator
 
             if (allowedAnswers != null && !allowedAnswers.Contains(userInput))
             {
-                Console.WriteLine(invalidChoiceMessage ?? "Такої віповіді нема");
+                Console.WriteLine(invalidChoiceMessage ?? "Invalid choice");
                 continue;
             }
 
             return userInput;
         }
-    }   
+    }
 }

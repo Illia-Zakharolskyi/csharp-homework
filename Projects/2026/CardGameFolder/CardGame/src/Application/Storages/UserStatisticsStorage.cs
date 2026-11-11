@@ -1,7 +1,6 @@
 ﻿// .Net 9.0
 // Data
 using CardGame.Data.UserProfile;
-using System;
 using System.Text.Json;
 
 namespace CardGame.src.Application.Storages;
@@ -23,11 +22,11 @@ internal class UserStatisticsStorage
     {
         if (_path == null)
         {
-            Console.WriteLine("Шлях до збереження не встановлено.");
+            Console.WriteLine("The way to the save file is not set.");
             return;
         }
 
-        Directory.CreateDirectory(Path.GetDirectoryName(_path)!);
+        _ = Directory.CreateDirectory(Path.GetDirectoryName(_path)!);
 
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(userStatistics, options);
@@ -38,7 +37,7 @@ internal class UserStatisticsStorage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Помилка при збереженні файлу: {ex.Message}");
+            Console.WriteLine($"Error saving file: {ex.Message}");
         }
     }
 
@@ -46,11 +45,14 @@ internal class UserStatisticsStorage
     {
         if (_path == null)
         {
-            Console.WriteLine("Шлях до завантаження не встановлено.");
+            Console.WriteLine("The path to the load file is not set.");
             return new UserStatistics();
         }
 
-        if (!File.Exists(_path)) return new UserStatistics();
+        if (!File.Exists(_path))
+        {
+            return new UserStatistics();
+        }
 
         string json;
         try
@@ -59,7 +61,7 @@ internal class UserStatisticsStorage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Помилка при завантаженні файлу: {ex.Message}");
+            Console.WriteLine($"Error loading file: {ex.Message}");
             return new UserStatistics();
         }
 
@@ -70,7 +72,7 @@ internal class UserStatisticsStorage
         }
         catch (JsonException ex)
         {
-            Console.WriteLine($"Помилка при розборі JSON: {ex.Message}");
+            Console.WriteLine($"Error parsing JSON: {ex.Message}");
             return new UserStatistics();
         }
 

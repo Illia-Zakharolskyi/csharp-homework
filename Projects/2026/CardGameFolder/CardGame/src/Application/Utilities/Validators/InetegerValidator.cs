@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CardGame.src.Application.Utilities.Validators;
+﻿namespace CardGame.src.Application.Utilities.Validators;
 
 internal static class InetegerValidator
 {
@@ -19,7 +17,7 @@ internal static class InetegerValidator
 
             if (allowedAnswers != null && !allowedAnswers.Contains(userInteger))
             {
-                Console.WriteLine(invalidChoiceMessage ?? "Такої віповіді нема");
+                Console.WriteLine(invalidChoiceMessage ?? "There is no such answer.");
                 continue;
             }
 

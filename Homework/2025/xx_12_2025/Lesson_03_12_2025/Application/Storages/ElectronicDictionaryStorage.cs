@@ -1,6 +1,5 @@
 ﻿// .NET9.0
 using Lesson_03_12_2025.Domain.Models;
-using System;
 
 namespace Lesson_03_12_2025.Application.Storages;
 
@@ -32,7 +31,7 @@ internal class ElectronicDictionaryStorage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Помилка при загрузкі файлу: {ex.Message}");
+            Console.WriteLine($"Error while loading file: {ex.Message}");
         }
 
         return entries;
@@ -51,7 +50,7 @@ internal class ElectronicDictionaryStorage
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Помилка при завантажуванні: {ex.Message}");
+            Console.WriteLine($"Error while saving file: {ex.Message}");
         }
     }
 }

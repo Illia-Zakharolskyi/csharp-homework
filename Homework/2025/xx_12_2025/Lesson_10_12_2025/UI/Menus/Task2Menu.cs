@@ -1,19 +1,17 @@
 ﻿// .Net 9.0
-using System;
 
 // Application
 using Lesson_10_12_2025.Application.RefactoredTasks;
-
-// UI
-using Lesson_10_12_2025.UI.Models;
 using Lesson_10_12_2025.UI.Dispatchers;
 using Lesson_10_12_2025.UI.Interfaces;
+// UI
+using Lesson_10_12_2025.UI.Models;
 
 namespace Lesson_10_12_2025.UI.Menus;
 
 internal class Task2Menu : Menu, IMenu
 {
-   public void Display()
+    public void Display()
     {
         base.Display(GetActionMap());
     }
@@ -22,8 +20,8 @@ internal class Task2Menu : Menu, IMenu
     {
         return new Dictionary<int, (string description, Action action)>
         {
-            { 0, ("назад", () => MenuDispatcher.PopMenu()) },
-            { 1, ("викликати завдання", () => Task2.Execute()) }
+            { 0, ("return", () => MenuDispatcher.PopMenu()) },
+            { 1, ("execute task", () => Task2.Execute()) }
         };
     }
 }

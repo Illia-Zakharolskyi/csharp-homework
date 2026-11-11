@@ -1,5 +1,4 @@
 ﻿// .NET9.0
-using System;
 
 // Application
 using Lesson_03_12_2025.Application.Managers;
@@ -19,12 +18,12 @@ internal class MainDicts
     {
         return new Dictionary<int, (string description, Action action)>()
         {
-            { 0, ("Вийти з програми", () => Environment.Exit(0)) },
-            { 1, ("Додати слово та пояснення", () => _dictionaryManager.AddEntry()) },
-            { 2, ("Видалити слово", () => _dictionaryManager.RemoveEntry()) },
-            { 3, ("Оновити пояснення до слова", () => _dictionaryManager.UpdateEntry()) },
-            { 4, ("знайти пояснення для слова", () => _dictionaryManager.SearchEntry()) },
-            { 5, ("показати всі слова зі значенями", () => _dictionaryManager.ShowAllEntries()) },
+            { 0, ("Exit", () => Environment.Exit(0)) },
+            { 1, ("Add word and definition", () => _dictionaryManager.AddEntry()) },
+            { 2, ("Delete word", () => _dictionaryManager.RemoveEntry()) },
+            { 3, ("Update definition for word", () => _dictionaryManager.UpdateEntry()) },
+            { 4, ("Find definition for word", () => _dictionaryManager.SearchEntry()) },
+            { 5, ("Show all words with definitions", () => _dictionaryManager.ShowAllEntries()) },
         };
     }
 }

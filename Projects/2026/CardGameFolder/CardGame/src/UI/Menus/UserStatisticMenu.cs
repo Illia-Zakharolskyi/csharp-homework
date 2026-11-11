@@ -1,5 +1,4 @@
 ﻿// .Net 9.0
-using System;
 
 // Data
 using CardGame.Data.UserProfile;
@@ -25,17 +24,17 @@ internal class UserStatisticMenu : Menu, IMenu
         _userStatisticsStorage = userStatisticsStorage;
     }
 
-    public void Display() 
-    { 
-        base.Display(GetActionMap()); 
-    } 
+    public void Display()
+    {
+        base.Display(GetActionMap());
+    }
 
-    public override Dictionary<int, (string description, Action action)> GetActionMap() 
-    { 
-        return new Dictionary<int, (string description, Action action)> 
-        { 
-            { 0, ("Повернутися назад", () => _dispatcher.PopMenu()) },
-            { 1, ("Показати статистику", () => ShowStatistics())   }
+    public override Dictionary<int, (string description, Action action)> GetActionMap()
+    {
+        return new Dictionary<int, (string description, Action action)>
+        {
+            { 0, ("return", () => _dispatcher.PopMenu()) },
+            { 1, ("Show Statistics", () => ShowStatistics())   }
         };
     }
 
@@ -43,16 +42,16 @@ internal class UserStatisticMenu : Menu, IMenu
     {
         Console.Clear();
 
-        string Battles = $"Боїв:{_userStatistics.GamesPlayed}";
+        string Battles = $"Battles: {_userStatistics.GamesPlayed}";
 
-        string PlayerMoves = $"Зроблено ходів ігроком:{_userStatistics.UserMovesMade}";
-        string BotMoves = $"Зроблено ходів ботом:{_userStatistics.OpponentMovesMade}";
+        string PlayerMoves = $"Player Moves: {_userStatistics.UserMovesMade}";
+        string BotMoves = $"Bot Moves: {_userStatistics.OpponentMovesMade}";
 
-        string Wins = $"Перемог: {_userStatistics.GamesWon}";
-        string Losses = $"Поразок: {_userStatistics.GamesLost}";
+        string Wins = $"Wins: {_userStatistics.GamesWon}";
+        string Losses = $"Losses: {_userStatistics.GamesLost}";
 
-        string PlayerDamage = $"Загальна шкода нанесена ігроком:{_userStatistics.TotalPlayerDamageDealt}";
-        string BotDamage = $"Загальна шкода нанесена ботом:{_userStatistics.TotalOpponentDamageDealt}";
+        string PlayerDamage = $"Total Damage Dealt by Player: {_userStatistics.TotalPlayerDamageDealt}";
+        string BotDamage = $"Total Damage Dealt by Bot: {_userStatistics.TotalOpponentDamageDealt}";
 
         string[] strings = new string[]
         {

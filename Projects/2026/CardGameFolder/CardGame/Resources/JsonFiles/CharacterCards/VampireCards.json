@@ -1,48 +1,48 @@
 ﻿[
   {
-    "Name": "темний жах",
+    "Name": "dark horror",
     "Rarity": "Common",
     "AttackPower": 2,
     "ManaCost": 2
   },
   {
-    "Name": "кровавий удар",
+    "Name": "bloodthirsty strike",
     "Rarity": "Common",
     "AttackPower": 3,
     "ManaCost": 3
   },
   {
-    "Name": "кровава печать",
+    "Name": "bloodied seal",
     "Rarity": "Rare",
     "AttackPower": 3,
     "ManaCost": 5
   },
   {
-    "Name": "нічне жахіття",
+    "Name": "dark horror",
     "Rarity": "Rare",
     "AttackPower": 4,
     "ManaCost": 4
   },
   {
-    "Name": "серйозний погляд",
+    "Name": "serious gaze",
     "Rarity": "Rare",
     "AttackPower": 4,
     "ManaCost": 4
   },
   {
-    "Name": "кровососна підлість",
+    "Name": "blood-sucking vileness",
     "Rarity": "Epic",
     "AttackPower": 5,
     "ManaCost": 8
   },
   {
-    "Name": "вампірьский відсос",
+    "Name": "vampiric suck",
     "Rarity": "Epic",
     "AttackPower": 6,
     "ManaCost": 9
   },
   {
-    "Name": "король вампирів",
+    "Name": "king of vampires",
     "Rarity": "Legendary",
     "AttackPower": 8,
     "ManaCost": 13

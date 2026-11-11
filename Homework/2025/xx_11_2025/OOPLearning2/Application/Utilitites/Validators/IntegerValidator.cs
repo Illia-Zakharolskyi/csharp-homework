@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OOPLearning2.Application.Utilitites.Validators;
+﻿namespace OOPLearning2.Application.Utilitites.Validators;
 
 internal class IntegerValidator
 {
@@ -23,7 +17,7 @@ internal class IntegerValidator
 
             if (allowedAnswers != null && !allowedAnswers.Contains(userInteger))
             {
-                Console.WriteLine(invalidChoiceMessage ?? "Такої віповіді нема");
+                Console.WriteLine(invalidChoiceMessage ?? "Invalid choice");
                 continue;
             }
 

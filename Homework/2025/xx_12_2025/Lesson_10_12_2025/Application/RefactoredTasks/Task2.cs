@@ -1,17 +1,15 @@
 ﻿// .NET.9.0
-using System;
-
 namespace Lesson_10_12_2025.Application.RefactoredTasks;
 
 internal static class Task2
 {
     internal static void Execute()
     {
-        Console.Write("Введіть кут у градусах: ");
-        
+        Console.Write("Enter the angle in degrees: ");
+
         if (!int.TryParse(Console.ReadLine(), out int deg))
         {
-            Console.WriteLine("Помилка: введено некоректне значення.");
+            Console.WriteLine("Error: invalid input.");
             return;
         }
 
@@ -19,16 +17,16 @@ internal static class Task2
 
         if (result == null)
         {
-            Console.WriteLine("Помилка: кут має бути в межах від 0 до 360 градусів.");
+            Console.WriteLine("Error: the angle must be between 0 and 360 degrees.");
             return;
         }
 
-        Console.WriteLine("У радіанах: " + result);
+        Console.WriteLine("Angle in radians: " + result);
     }
 
-    static double? DegToRad(int deg)
+    private static double? DegToRad(int deg)
     {
-        if (deg < 0 || deg > 360)
+        if (deg is < 0 or > 360)
         {
             return null;
         }

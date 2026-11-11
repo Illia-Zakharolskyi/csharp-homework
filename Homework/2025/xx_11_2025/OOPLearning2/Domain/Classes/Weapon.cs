@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace OOPLearning2.Domain.Classes;
+﻿namespace OOPLearning2.Domain.Classes;
 
 internal class Weapon
 {
@@ -18,7 +16,7 @@ internal class Weapon
         {
             if (value <= 0)
             {
-                Console.WriteLine("Збиток не може бути меньшим чи равним 0. Встановленно базове значення");
+                Console.WriteLine("Damage cannot be less than or equal to 0. Default value set.");
                 damage = 20;
             }
             else
@@ -34,7 +32,7 @@ internal class Weapon
         {
             if (value <= 0)
             {
-                Console.WriteLine("Діапазон не моде бути меньшим чи равним 0. Встановленно базове значення");
+                Console.WriteLine("Range cannot be less than or equal to 0. Default value set.");
                 range = 5;
             }
         }

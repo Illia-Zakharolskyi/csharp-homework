@@ -1,11 +1,5 @@
 ﻿using OOPLearning2.Application.Formatters;
 using OOPLearning2.Domain.Classes;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPLearning2.UI;
 
@@ -13,22 +7,22 @@ internal static class DemoRunner
 {
     internal static void RunScenarioDemo()
     {
-        App settings = new App
+        App settings = new()
         {
-            Name = "Налаштування",
+            Name = "Settings",
             BatteryConsumption = 25,
             RequiredBatteryForInstallation = 10,
             RequiredBatteryForDelete = 15
         };
-        App calls = new App
+        App calls = new()
         {
-            Name = "Дзвінки",
+            Name = "Calls",
             BatteryConsumption = 15,
             RequiredBatteryForInstallation = 7,
             RequiredBatteryForDelete = 12
         };
 
-        Smartphone myPhone = new Smartphone
+        Smartphone myPhone = new()
         {
             Model = "SuperHeroPhone Ultimate Luxury Pro++ Delux",
             BatteryLevel = 100,
@@ -56,10 +50,10 @@ internal static class DemoRunner
             () => myPhone.DisplayInfo(),
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з об'єктами " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of demo for actions with objects " + new string('=', 10));
         Console.WriteLine();
-        RunDemoClassesFormatter.RunActions(actions, "Дія Методу", '-', 50);
+        RunDemoClassesFormatter.RunActions(actions, "Method Action", '-', 50);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з об'єктами " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of demo for actions with objects " + new string('=', 10));
     }
 }

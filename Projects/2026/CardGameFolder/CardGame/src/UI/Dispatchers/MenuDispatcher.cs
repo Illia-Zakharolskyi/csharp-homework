@@ -1,5 +1,4 @@
 ﻿// .NET 9.0
-using System;
 
 
 // Utilities
@@ -16,7 +15,7 @@ namespace CardGame.src.UI.Dispatchers;
 internal class MenuDispatcher
 {
     private readonly Stack<IMenu> menuStack = new();
-    
+
     internal void Run(IMenu menu)
     {
         menuStack.Push(menu);
@@ -30,14 +29,14 @@ internal class MenuDispatcher
 
 
             int userChoice = InetegerValidator.ReadInteger(
-                promptMessage: "Введіть ваш вибір: ",
-                invalidInputMessage: "Некоректне введення. Спробуйте ще раз.",
+                promptMessage: "Enter your choice: ",
+                invalidInputMessage: "Invalid input. Please try again.",
                 allowedAnswers: new List<int>(currentMenuActionMap.Keys),
-                invalidChoiceMessage: "Такої віповіді нема"
+                invalidChoiceMessage: "That option is not available"
             );
 
             currentMenuActionMap[userChoice].action.Invoke();
-            Console.ReadKey();
+            _ = Console.ReadKey();
         }
     }
 
@@ -49,6 +48,8 @@ internal class MenuDispatcher
     internal void PopMenu()
     {
         if (menuStack.Count > 0)
-            menuStack.Pop();
+        {
+            _ = menuStack.Pop();
+        }
     }
 }

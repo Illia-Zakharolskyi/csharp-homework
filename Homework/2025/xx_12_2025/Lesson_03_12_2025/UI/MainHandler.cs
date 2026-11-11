@@ -1,5 +1,4 @@
 ﻿// .NET 9.0
-using System;
 
 // Application
 using Lesson_03_12_2025.Application.Helpers.Dictionaries;
@@ -19,10 +18,10 @@ internal class MainHandler
     internal void HandleUserInput()
     {
         int userChoice = IntegerValidator.ReadInteger(
-            "Введіть номер дії: ",
-            "Некоректне введення. Спробуйте ще раз.",
+            "Enter action number: ",
+            "Invalid input. Please try again.",
             new List<int>(_mainDicts.GetAvailableActions().Keys),
-            "Такої дії немає. Спробуйте ще раз."
+            "Such action does not exist. Please try again."
         );
 
         _mainDicts.GetAvailableActions()[userChoice].action.Invoke();

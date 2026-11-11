@@ -1,48 +1,48 @@
 ﻿[
   {
-    "Name": "удар кігтями",
+    "Name": "claw strike",
     "Rarity": "Common",
     "AttackPower": 3,
     "ManaCost": 4
   },
   {
-    "Name": "дика атака",
+    "Name": "wild attack",
     "Rarity": "Common",
     "AttackPower": 3,
     "ManaCost": 3
   },
   {
-    "Name": "місячний рев",
+    "Name": "moon howl",
     "Rarity": "Rare",
     "AttackPower": 5,
     "ManaCost": 7
   },
   {
-    "Name": "перетворення",
+    "Name": "transformation",
     "Rarity": "Rare",
     "AttackPower": 3,
     "ManaCost": 4
   },
   {
-    "Name": "місячне бажання",
+    "Name": "moon desire",
     "Rarity": "Rare",
     "AttackPower": 4,
     "ManaCost": 4
   },
   {
-    "Name": "полювання вночі",
+    "Name": "hunting at night",
     "Rarity": "Epic",
     "AttackPower": 6,
     "ManaCost": 9
   },
   {
-    "Name": "розповсюдження страху",
+    "Name": "spreading fear",
     "Rarity": "Epic",
     "AttackPower": 5,
     "ManaCost": 7
   },
   {
-    "Name": "король перевертнів",
+    "Name": "king of werewolves",
     "Rarity": "Legendary",
     "AttackPower": 6,
     "ManaCost": 10

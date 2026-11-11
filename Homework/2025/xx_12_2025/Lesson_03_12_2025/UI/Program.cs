@@ -1,11 +1,9 @@
 ﻿// .NET9.0
-using System;
-using System.IO;
 
 // Application
+using Lesson_03_12_2025.Application.Helpers.Dictionaries;
 using Lesson_03_12_2025.Application.Managers;
 using Lesson_03_12_2025.Application.Storages;
-using Lesson_03_12_2025.Application.Helpers.Dictionaries;
 
 namespace Lesson_03_12_2025.UI;
 
@@ -36,7 +34,7 @@ internal static class Program
                 manager.MarkFileAsSaved();
             }
 
-            Console.ReadKey();
+            _ = Console.ReadKey();
         }
     }
 }

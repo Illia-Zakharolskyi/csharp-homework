@@ -1,6 +1,4 @@
-﻿using System;
-
-using OOPLearning3.Application.Helpers.Formatters;
+﻿using OOPLearning3.Application.Helpers.Formatters;
 using OOPLearning3.Domain.Models;
 using OOPLearning3.Domain.Weapons;
 
@@ -17,17 +15,17 @@ internal static class DemoRunner
             () => RunPlayerBowDemo(),
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок всіх презентацій " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of all demos " + new string('=', 10));
         Console.WriteLine();
-        RunDemoActionsFormatter.RunActions(actions, "Демонстрація", '*', 70);
+        RunDemoActionsFormatter.RunActions(actions, "demo", '*', 70);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець всіх презентацій " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of  " + new string('=', 10));
     }
     internal static void RunPlayersBowAndSwordDemo()
     {
         Weapon weapon1 = new Sword()
         {
-            Name = "екскалібур",
+            Name = "Excalibur",
             BasicDamage = 32.45f,
             BladeLength = 1.2f
         };
@@ -37,12 +35,12 @@ internal static class DemoRunner
             MaxArrowCount = 10,
         };
 
-        Player player1 = new Player(
-            name: "Алекс",
+        Player player1 = new(
+            name: "Alex",
             equippedWeapon: weapon1
         );
-        Player player2 = new Player(
-            name: "Андрій",
+        Player player2 = new(
+            name: "Andriy",
             equippedWeapon: weapon2
         );
 
@@ -67,23 +65,23 @@ internal static class DemoRunner
            () => player2.DisplayWeaponStats(),
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з ігроком який має меч та ігроком який має лук " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with a player who has a sword and a player who has a bow " + new string('=', 10));
         Console.WriteLine();
         RunDemoActionsFormatter.RunActions(actions);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з ігроком який має меч та ігроком який має лук " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with a player who has a sword and a player who has a bow " + new string('=', 10));
     }
     internal static void RunPlayerSwordDemo()
     {
         Weapon sword = new Sword
         {
-            Name = "Старий меч",
+            Name = "Old Sword",
             BasicDamage = 20.0f,
             BladeLength = 0.9f
         };
 
-        Player player = new Player(
-            name: "Максим",
+        Player player = new(
+            name: "Maxim",
             equippedWeapon: sword
         );
 
@@ -99,22 +97,22 @@ internal static class DemoRunner
             () => player.SpecialWeaponAttack(),
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з ігроком який має меч " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with a player who has a sword " + new string('=', 10));
         Console.WriteLine();
         RunDemoActionsFormatter.RunActions(actions);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з ігроком який має меч " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with a player who has a sword " + new string('=', 10));
     }
     internal static void RunPlayerBowDemo()
     {
         Weapon bow = new Bow
         {
-            Name = "Мисливський лук",
+            Name = "Hunter Bow",
             BasicDamage = 15.0f,
             MaxArrowCount = 12
         };
 
-        Player player = new Player("Олег", bow);
+        Player player = new("Oleg", bow);
 
         List<Action> actions = new()
         {
@@ -129,10 +127,10 @@ internal static class DemoRunner
             () => player.DisplayWeaponStats(),
         };
 
-        Console.WriteLine(new string('=', 10) + " Початок презентації дій з ігроком який має лук " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " Start of presentation of actions with a player who has a bow " + new string('=', 10));
         Console.WriteLine();
         RunDemoActionsFormatter.RunActions(actions);
         Console.WriteLine();
-        Console.WriteLine(new string('=', 10) + " Кінець презентації дій з ігроком який має лук " + new string('=', 10));
+        Console.WriteLine(new string('=', 10) + " End of presentation of actions with a player who has a bow " + new string('=', 10));
     }
 }

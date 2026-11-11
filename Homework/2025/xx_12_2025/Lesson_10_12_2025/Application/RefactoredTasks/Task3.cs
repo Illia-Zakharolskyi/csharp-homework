@@ -1,23 +1,21 @@
 ﻿// .NET.9.0
-using System;
-
 namespace Lesson_10_12_2025.Application.RefactoredTasks;
 
 internal static class Task3
 {
     internal static void Execute()
     {
-        Console.Write("Перший кут у градусах: ");
+        Console.Write("Enter the first angle in degrees: ");
         if (!int.TryParse(Console.ReadLine(), out int a))
         {
-            Console.WriteLine("Помилка: введено некоректне значення.");
+            Console.WriteLine("Error: invalid input.");
             return;
         }
 
-        Console.Write("Другий кут у градусах: ");
+        Console.Write("Enter the second angle in degrees: ");
         if (!int.TryParse(Console.ReadLine(), out int b))
         {
-            Console.WriteLine("Помилка: введено некоректне значення.");
+            Console.WriteLine("Error: invalid input.");
             return;
         }
 
@@ -26,17 +24,17 @@ internal static class Task3
 
         if (resultA == null || resultB == null)
         {
-            Console.WriteLine("Помилка: кут a/b має бути в межах від 0 до 360 градусів.");
+            Console.WriteLine("Error: the angles must be between 0 and 360 degrees.");
             return;
         }
 
-        Console.WriteLine($"Перший кут у радіанах: {resultA}");
-        Console.WriteLine($"Другий кут у радіанах: {resultB}");
+        Console.WriteLine($"First angle in radians: {resultA}");
+        Console.WriteLine($"Second angle in radians: {resultB}");
     }
 
-    static double? DegToRad(int deg)
+    private static double? DegToRad(int deg)
     {
-        if (deg < 0 || deg > 360)
+        if (deg is < 0 or > 360)
         {
             return null;
         }

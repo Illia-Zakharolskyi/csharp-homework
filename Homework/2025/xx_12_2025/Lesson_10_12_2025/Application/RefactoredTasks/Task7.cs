@@ -1,5 +1,4 @@
 ﻿// .NET.9.0
-using System;
 using System.Text;
 
 namespace Lesson_10_12_2025.Application.RefactoredTasks;
@@ -12,7 +11,7 @@ internal static class Task7
 
         if (degrees == null || degrees.Length == 0)
         {
-            Console.WriteLine("Немає введених кутів для конвертації.");
+            Console.WriteLine("Invalid input: no angles provided for conversion.");
             return;
         }
 
@@ -26,11 +25,11 @@ internal static class Task7
 
         while (true)
         {
-            Console.Write("Введіть кут у градусах (або 'вихід' для завершення): ");
+            Console.Write("Enter the angle in degrees (or 'exit' to finish): ");
 
             string? input = Console.ReadLine();
 
-            if (input != null && input.Trim().ToLower() == "вихід")
+            if (input != null && input.Trim().ToLower() == "exit")
             {
                 return degrees.ToArray();
             }
@@ -42,7 +41,7 @@ internal static class Task7
 
             else
             {
-                Console.WriteLine("Помилка: введено некоректне значення.");
+                Console.WriteLine("Error: invalid input.");
             }
         }
     }
@@ -54,7 +53,7 @@ internal static class Task7
         {
             int d = degrees[i];
 
-            if (d < 0 || d > 360)
+            if (d is < 0 or > 360)
             {
                 result[i] = double.NaN;
                 continue;
@@ -68,22 +67,22 @@ internal static class Task7
     internal static void PrintResult(double[] radians)
     {
         StringBuilder sb = new();
-        sb.Append("Отримані радіани: ");
+        _ = sb.Append("Received radians: ");
 
         for (int i = 0; i < radians.Length; i++)
         {
             if (!double.IsNaN(radians[i]))
             {
-                sb.Append(radians[i]);
+                _ = sb.Append(radians[i]);
             }
             else
             {
-                sb.Append("Некоректне значення");
+                _ = sb.Append("Invalid value");
             }
 
             if (i < radians.Length - 1)
             {
-                sb.Append(", ");
+                _ = sb.Append(", ");
             }
         }
 

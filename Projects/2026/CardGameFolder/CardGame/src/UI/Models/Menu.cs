@@ -1,5 +1,4 @@
 ﻿// System
-using System;
 
 // Data
 using CardGame.Data.UserProfile;
@@ -28,7 +27,7 @@ internal class Menu
 
     public virtual void Display(Dictionary<int, (string description, Action action)> actionMap)
     {
-        Console.WriteLine($"{"Номер",-6} | {"Опис"}");
+        Console.WriteLine($"{"Id",-6} | {"Description"}");
         Console.WriteLine(new string('-', 40));
 
         foreach (var item in actionMap)

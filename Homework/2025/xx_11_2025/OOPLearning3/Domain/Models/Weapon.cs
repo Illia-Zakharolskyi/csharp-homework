@@ -1,13 +1,11 @@
-﻿using System;
-
-using OOPLearning3.Domain.Defaults;
+﻿using OOPLearning3.Domain.Defaults;
 
 namespace OOPLearning3.Domain.Models;
 
 internal abstract class Weapon
 {
     // Ідентифікація
-    internal string Name { get; init; } = "без іменний";
+    internal string Name { get; init; } = "Unnamed";
 
     // Збиток
     protected float currentDamage { get; set; }
@@ -22,9 +20,9 @@ internal abstract class Weapon
         get => basicDamage;
         init
         {
-            if (value <= 0 )
+            if (value <= 0)
             {
-                Console.WriteLine($"Не корректне значення '{value}' для збитку зброї, встановлено значення за замовченням");
+                Console.WriteLine($"Invalid value '{value}' for weapon damage, default value set");
                 basicDamage = WeaponDefaults.DefaultDamage;
                 currentDamage = basicDamage;
             }

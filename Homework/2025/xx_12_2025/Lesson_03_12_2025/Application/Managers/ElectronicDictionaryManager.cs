@@ -1,7 +1,4 @@
 ﻿// .NET9.0
-using System;
-using System.ComponentModel.DataAnnotations;
-using Lesson_03_12_2025.Application.Helpers.Dictionaries;
 
 
 // Application
@@ -28,78 +25,78 @@ internal class ElectronicDictionaryManager
 
     internal void AddEntry()
     {
-        string word = StringValidator.ReadString("Введи слово: ", "Некоректне значення для слова");
-        string definition = StringValidator.ReadString("Введи пояснення: ", "Некоректне значення для пояснення");
+        string word = StringValidator.ReadString("Enter word: ", "Invalid value for word");
+        string definition = StringValidator.ReadString("Enter definition: ", "Invalid value for definition");
 
         _entries!.Add(new ElectronicDictionaryEntry(word, definition));
-        
-        Console.WriteLine("Слово + пояснення добавлено!");
+
+        Console.WriteLine("Word and definition added!");
         MarkAsNeedToSaveFile();
     }
     internal void RemoveEntry()
     {
-        string word = StringValidator.ReadString("Введи слово для видалення: ", "Некоректне значення для слова");
+        string word = StringValidator.ReadString("Enter word to delete: ", "Invalid value for word");
 
         var entry = _entries!.FirstOrDefault(e => e.Word.Equals(word, StringComparison.OrdinalIgnoreCase));
         if (entry != null)
         {
-            _entries!.Remove(entry);
-            Console.WriteLine("Слово видалено!");
+            _ = _entries!.Remove(entry);
+            Console.WriteLine("Word deleted!");
             MarkAsNeedToSaveFile();
             return;
         }
 
-        Console.WriteLine("Слово не найдено");
+        Console.WriteLine("Word not found");
     }
     internal void UpdateEntry()
     {
-        string word = StringValidator.ReadString("Введи слово для обновлення пояснення: ", "Некоректне значення для слова");
-        string newDefinition = StringValidator.ReadString("Введи нове пояснення: ", "Некоректне значення для пояснення");
+        string word = StringValidator.ReadString("Enter word for definition update: ", "Invalid value for word");
+        string newDefinition = StringValidator.ReadString("Enter new definition: ", "Invalid value for definition");
 
         var entry = _entries!.FirstOrDefault(e => e.Word.Equals(word, StringComparison.OrdinalIgnoreCase));
         if (entry != null)
         {
             entry.Definition = newDefinition;
-            Console.WriteLine("Пояснення обновлено!");
+            Console.WriteLine("Definition updated!");
             MarkAsNeedToSaveFile();
             return;
         }
 
-        Console.WriteLine("Слово не найдено");
+        Console.WriteLine("Word not found");
     }
     internal void SearchEntry()
     {
-        string word = StringValidator.ReadString("Введи слово для пошуку: ", "Некоректне значення для слова");
+        string word = StringValidator.ReadString("Enter word for search: ", "Invalid value for word");
 
         if (_entries!.Count == 0)
         {
-            Console.WriteLine("Словник порожній");
+            Console.WriteLine("Dictionary is empty");
             return;
         }
 
         if (!_entries.Any(e => e.Word.Equals(word, StringComparison.OrdinalIgnoreCase)))
         {
-            Console.WriteLine("Слово не найдено");
+            Console.WriteLine("Word not found");
             return;
         }
 
         var entry = _entries.First(e => e.Word.Equals(word, StringComparison.OrdinalIgnoreCase));
-        Console.WriteLine($"Пояснення для слова '{entry.Word}': {entry.Definition}");
+        Console.WriteLine($"Definition for word '{entry.Word}': {entry.Definition}");
     }
     internal void ShowAllEntries()
     {
         if (_entries!.Count == 0)
         {
-            Console.WriteLine("Файл пустий та нема чого показувати");
+            Console.WriteLine("File is empty and there is nothing to display");
             return;
         }
 
-        Console.WriteLine($"{"Слово", -5} | Значення");
+        Console.WriteLine($"{"Word",-5} | Definition");
 
         foreach (var entry in _entries)
         {
             Console.WriteLine(new string('-', 30));
-            Console.WriteLine($"{entry.Word, -5} | {entry.Definition}");
+            Console.WriteLine($"{entry.Word,-5} | {entry.Definition}");
         }
 
         Console.WriteLine(new string('-', 30));

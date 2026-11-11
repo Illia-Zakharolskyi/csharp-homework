@@ -1,7 +1,4 @@
-﻿using System;
-
-
-using OOPLearning3.Domain.Defaults;
+﻿using OOPLearning3.Domain.Defaults;
 using OOPLearning3.Domain.Interfaces;
 using OOPLearning3.Domain.Models;
 
@@ -21,7 +18,7 @@ internal class Bow : Weapon, IReloadable
         {
             if (value <= 0)
             {
-                Console.WriteLine($"Не корректне значення '{value}' для кількість стріл у лука, встановлено значення за замовченням");
+                Console.WriteLine($"Invalid value '{value}' for arrow count in bow, default value set");
                 maxArrowCount = WeaponDefaults.BowDefaultArrowCount;
             }
             else
@@ -44,12 +41,12 @@ internal class Bow : Weapon, IReloadable
     {
         if (currentArrowCount == maxArrowCount)
         {
-            Console.WriteLine($"Кількість стріл максимальна({MaxArrowCount} стріл), нема сенсу перезаряджатися");
+            Console.WriteLine($"Arrow count is maximum({MaxArrowCount} arrows), no need to reload");
             return;
         }
 
         currentArrowCount = maxArrowCount;
-        Console.WriteLine($"Кількість стріл поповнилась до максимума({MaxArrowCount} стріл)!");
+        Console.WriteLine($"Arrow count has been replenished to maximum({MaxArrowCount} arrows)!");
     }
 
     // override методи
@@ -57,32 +54,32 @@ internal class Bow : Weapon, IReloadable
     {
         if (currentArrowCount <= 0)
         {
-            Console.WriteLine("Недостатьно стріл для вистрілу луку");
+            Console.WriteLine("Not enough arrows for a bow shot");
             return;
         }
 
         currentArrowCount--;
 
-        Console.WriteLine($"луком з ім'ям {Name} завдаючи {currentDamage:F2} одиниць урону");
+        Console.WriteLine($"Bow with name {Name} deals {currentDamage:F2} units of damage");
         ApplyFatigue();
     }
     internal override void SpecialAttack()
     {
         if (currentArrowCount <= 0)
         {
-            Console.WriteLine("Недостатьно стріл для спеціального вистрілу луку");
+            Console.WriteLine("Not enough arrows for a special bow shot");
             return;
         }
 
         float specialDamage = currentDamage * currentArrowCount;
 
-        Console.WriteLine($"луком випускаючи всі стріли та завдаючи {specialDamage:F2} одиниць шкоди");
+        Console.WriteLine($"Bow with name {Name} fires all arrows and deals {specialDamage:F2} units of damage");
         ApplyFatigue(currentArrowCount);
         currentArrowCount = 0;
     }
 
     internal override void DisplayStats()
     {
-        Console.WriteLine($"лук з назвою: {Name}, базовий збиток {Name}: {basicDamage:F2}, поточний збиток {Name}: {currentDamage:F2}, кількість стріл у {Name}: {currentArrowCount}, було вистрілів з луку {Name}: {attackCount}");
+        Console.WriteLine($"Bow with name {Name}: basic damage {basicDamage:F2}, current damage {currentDamage:F2}, arrow count {currentArrowCount}, shots fired {attackCount}");
     }
 }

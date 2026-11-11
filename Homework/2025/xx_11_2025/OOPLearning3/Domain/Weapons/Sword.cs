@@ -1,6 +1,4 @@
-﻿using System;
-
-using OOPLearning3.Domain.Defaults;
+﻿using OOPLearning3.Domain.Defaults;
 using OOPLearning3.Domain.Interfaces;
 using OOPLearning3.Domain.Models;
 
@@ -22,7 +20,7 @@ internal class Sword : Weapon, ISharpenable
         {
             if (value <= 0)
             {
-                Console.WriteLine($"Не корректне значення '{value}' для довжини меча, встановлено значення за замовченням");
+                Console.WriteLine($"Invalid value '{value}' for blade length, default value set");
                 bladeLength = WeaponDefaults.DefaultBladeLength;
             }
             else
@@ -36,7 +34,7 @@ internal class Sword : Weapon, ISharpenable
     {
         if (SharpenLevel == WeaponDefaults.MaxSharpenLevel)
         {
-            Console.WriteLine($"Досягнуто максимального рівня загострювання({SharpenLevel} рівень загострювання)");
+            Console.WriteLine($"Maximum sharpening level reached({SharpenLevel} sharpening level)");
             return;
         }
 
@@ -44,26 +42,26 @@ internal class Sword : Weapon, ISharpenable
         basicDamage *= WeaponDefaults.SharpenLevelDamageMultipliers[SharpenLevel - 1];
         currentDamage = basicDamage;
 
-        Console.WriteLine($"поточний рівень загострювання: {(SharpenLevel == WeaponDefaults.MaxSharpenLevel ? $"{SharpenLevel} (максимальний)" : $"{SharpenLevel}")}");
+        Console.WriteLine($"Current sharpening level: {(SharpenLevel == WeaponDefaults.MaxSharpenLevel ? $"{SharpenLevel} (maximum)" : $"{SharpenLevel}")}");
     }
 
     // override методи
     internal override void Attack()
     {
-        Console.WriteLine($"мечом з назвою {Name} завдаючи {currentDamage:F2} одиниць шкоди");
+        Console.WriteLine($"Sword with name {Name} deals {currentDamage:F2} units of damage");
         ApplyFatigue();
     }
 
     internal override void DisplayStats()
     {
-        Console.WriteLine($"меч з назвою: {Name}, базовий збиток {Name}: {basicDamage:F2}, поточний збиток {Name}: {currentDamage:F2}, довжина {Name}: {bladeLength:F2} метрів, завдано ударів з допомогою {Name}: {attackCount}");
+        Console.WriteLine($"Sword with name {Name}: basic damage {basicDamage:F2}, current damage {currentDamage:F2}, blade length {bladeLength:F2} meters, shots fired {attackCount}");
     }
 
     internal override void SpecialAttack()
     {
         float specialDamage = currentDamage * WeaponDefaults.SwordSpecialAttackMultiplier;
 
-        Console.WriteLine($"мечом з назвою {Name} завдаючи {specialDamage:F2} одиниць шкоди");
+        Console.WriteLine($"Sword with name {Name} deals {specialDamage:F2} units of damage");
         ApplyFatigue();
     }
 }

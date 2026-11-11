@@ -1,6 +1,4 @@
-﻿using System;
-
-using OOPLearning3.Application.Routing;
+﻿using OOPLearning3.Application.Routing;
 
 namespace OOPLearning3.UI;
 
@@ -8,7 +6,7 @@ internal static class MainMenu
 {
     internal static void Display()
     {
-        Console.WriteLine($"{"Номер",-6} | {"Опис"}");
+        Console.WriteLine($"{"Id",-6} | {"Description"}");
         Console.WriteLine(new string('-', 40));
 
         foreach (var item in MainDicts.availableActions)
