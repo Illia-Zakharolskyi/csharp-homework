@@ -4,7 +4,7 @@
 ![Language](https://img.shields.io/badge/C%23-9.0-green)
 
 # A collection of C# console applications and exercises focused on learning C# fundamentals and Object-Oriented Programming (OOP).
-### (The owner of the repository is currently working on translating various parts of of the project from Ukrainian into English)
+### (I have translated all projects and tasks from Ukrainian to English, but I may refine the translations in the future)
 ---
 
 ## 🛠 Tech Stack
